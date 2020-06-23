@@ -21,8 +21,9 @@ namespace WeatherApp.Data
         private const string URL= "http://api.openweathermap.org/data/2.5/weather?q=";
         private const string APIKEY = "&appid=199fefc6e88c9173d5f50323d8592652";
       
-        public async Task GetAPIData(string userInput)
+        public async Task<WeatherData> GetAPIData(string userInput)
         {
+            WeatherData weatherData = new WeatherData();
             string path = URL + userInput + APIKEY;
             try
             {
@@ -41,7 +42,6 @@ namespace WeatherApp.Data
                             if (data != null)
                             {
                                 var sysData = JObject.Parse(data);
-                                WeatherData weatherData = new WeatherData();
                                 weatherData = HandleDataFormat.ConvertJson(weatherData,sysData);
                             }
                             else
@@ -57,6 +57,7 @@ namespace WeatherApp.Data
                 Console.WriteLine("Exception Hit------------");
                 Console.WriteLine(e);
             }
+            return weatherData;
         }
     }
 

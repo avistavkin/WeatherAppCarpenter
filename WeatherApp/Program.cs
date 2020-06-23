@@ -10,16 +10,7 @@ namespace WeatherApp
         //https://openweathermap.org/current
         static async Task Main(string[] args)
         {
-            while (true)
-            {
-                FetchData data = new FetchData();
-                Console.Write("Enter City Name: ");
-                string input = Console.ReadLine();
-                await data.GetAPIData(input);
-                Console.ReadKey();
-                Console.Clear();
-            }
-
+            await Menu.RunProgram();
         }
 
     }
