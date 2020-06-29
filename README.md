@@ -14,7 +14,6 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - [ ] Grab several citys data
 - [ ] OpenWeather Onecall? support
 - [ ] weekly or daily forecast support
-- [ ] color and style to console menu
 - [ ] more menu options
 
 ### Support that might get added
@@ -24,3 +23,4 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - [ ] Weather trigger support
 - [ ] Better threading support if needed
 - [ ] Blazor webAssembly support
+- [ ] color and style to console menu
