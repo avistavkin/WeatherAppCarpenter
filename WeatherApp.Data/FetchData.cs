@@ -20,11 +20,12 @@ namespace WeatherApp.Data
     {
         private const string URL= "http://api.openweathermap.org/data/2.5/weather?";
         private const string APIKEY = "&appid=199fefc6e88c9173d5f50323d8592652";
+        private const string MetricUnits = "&units=metric";
         private WeatherData weatherData = new WeatherData();
 
         public async Task<WeatherData> GetAPIData(string userInput)
         {
-            string path = URL+ "q=" + userInput + "&units=metric" + APIKEY;
+            string path = URL+ "q=" + userInput + MetricUnits + APIKEY;
             weatherData = await ConnectToClient(path);
             return weatherData;
         }
@@ -32,7 +33,7 @@ namespace WeatherApp.Data
 
         public async Task<WeatherData> GetAPIData(int lat, int lon)
         {
-            string path = URL + $"lat={lat}&lon={lon}" + APIKEY;
+            string path = URL + $"lat={lat}&lon={lon}"+MetricUnits+ APIKEY;
             //string path = "https://api.openweathermap.org/data/2.5/onecall?lat=57&lon=12&appid=199fefc6e88c9173d5f50323d8592652";//for onecall support
             weatherData = await ConnectToClient(path);
             return weatherData;

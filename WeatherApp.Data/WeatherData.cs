@@ -8,8 +8,11 @@ namespace WeatherApp.Data
 {
     public class WeatherData
     {
+        [JsonPropertyName("country")]
+        public string Country { get; set; }
+
         [JsonPropertyName("name")]
-        public string CountryName { get; set; } 
+        public string CityName { get; set; } 
         public string temp { get; set;}
         public string pressure { get; set; }
         public string humidity { get; set; }
@@ -18,12 +21,15 @@ namespace WeatherApp.Data
         public string lon { get; set; }
         public string lat { get; set; }
 
+        public string main { get; set; }
+        public string description { get; set; }
+
         [JsonPropertyName("weather")]
-        public List<Weather> weather { get; set; }
+        public List<WeatherData> weather { get; set; }
 
         public override string ToString()
         {
-            return $"Lon: {lon}\nLat: {lat}\nCity: {CountryName}\nTempratura: {temp}C° \nPressure: {pressure}\n" +
+            return $"Country: {Country}\nCity: {CityName}\nLon: {lon}\nLat: {lat}\nTempratura: {temp}C° \nPressure: {pressure}\n" +
                 $"Humidity: {humidity}\nWind Speed: {windSpeed}\nDeg: {deg}\n" +
                 $"Condition: {weather[0].main}\nDescription: {weather[0].description}";
         }

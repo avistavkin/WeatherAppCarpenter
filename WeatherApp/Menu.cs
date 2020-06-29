@@ -35,6 +35,7 @@ namespace WeatherApp
                     url = "http://api.openweathermap.org/data/2.5/weather?q=";
                     Console.Write("Enter City Name: ");
                     input = Console.ReadLine();
+                    Console.Clear();
                     Console.Write(await data.GetAPIData(input));
                     Console.ReadKey();
                     break;
@@ -46,6 +47,7 @@ namespace WeatherApp
                     Console.Write("Enter lon value: ");
                     input = Console.ReadLine();
                     int lon = int.Parse(input);
+                    Console.Clear();
                     Console.Write(await data.GetAPIData(lat,lon));
                     Console.ReadKey();
                     break;

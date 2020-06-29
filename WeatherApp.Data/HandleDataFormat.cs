@@ -15,9 +15,10 @@ namespace WeatherApp.Data
         public static WeatherData ConvertJson(JObject data)
         {
             WeatherData weather = new WeatherData();
-            weather.weather = JsonConvert.DeserializeObject<List<Weather>>(data["weather"].ToString());
+            weather.weather = JsonConvert.DeserializeObject<List<WeatherData>>(data["weather"].ToString());
 
-            weather.CountryName = data["name"].ToString();
+            weather.Country = data["sys"]["country"].ToString();
+            weather.CityName = data["name"].ToString();
             weather.temp = data["main"]["temp"].ToString();
             weather.pressure = data["main"]["pressure"].ToString();
             weather.humidity = data["main"]["humidity"].ToString();
