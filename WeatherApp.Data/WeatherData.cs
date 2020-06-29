@@ -29,7 +29,7 @@ namespace WeatherApp.Data
 
         public override string ToString()
         {
-            return $"Country: {Country}\nCity: {CityName}\nLon: {lon}\nLat: {lat}\nTempratura: {temp}C° \nPressure: {pressure}\n" +
+            return $"Country: {Country}\nLon: {lon}\nLat: {lat}\nCity: {CityName}\nTemperatur: {temp}C° \nPressure: {pressure}\n" +
                 $"Humidity: {humidity}\nWind Speed: {windSpeed}\nDeg: {deg}\n" +
                 $"Condition: {weather[0].main}\nDescription: {weather[0].description}";
         }

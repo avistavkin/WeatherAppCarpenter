@@ -32,7 +32,6 @@ namespace WeatherApp
             switch (userInput)
             {
                 case "1":
-                    url = "http://api.openweathermap.org/data/2.5/weather?q=";
                     Console.Write("Enter City Name: ");
                     input = Console.ReadLine();
                     Console.Clear();
@@ -40,7 +39,6 @@ namespace WeatherApp
                     Console.ReadKey();
                     break;
                 case "2":
-                    url = "https://api.openweathermap.org/data/2.5/onecall?";
                     Console.Write("Enter lat value: ");
                     input = Console.ReadLine();
                     int lat = int.Parse(input);
