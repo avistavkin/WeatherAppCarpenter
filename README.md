@@ -8,5 +8,18 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 ### Support that will be added 
 - [x] Show country code
 - [x] Search with lon and lat
-- [x] a simple console menu
-- [x] search by city
+- [x] Simple console menu
+- [x] Search by city
+- [] Grab several citys data
+- [] OpenWeather Onecall? support
+- [] weekly or daily forecast support
+- [] color and style to console menu
+- [] more menu options
+
+### Support that might get added
+- [] GUI in some form
+- [] UV index
+- [] Database support
+- [] Weather trigger support
+- [] Better threading support if needed
+- [] Blazor webAssembly support
