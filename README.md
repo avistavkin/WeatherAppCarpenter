@@ -4,6 +4,7 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 ### Issues
 - Issues with the tag questions might get added and are up for question
 - Issues with the tag enhancement will be added to the project
+- Issues with the tag bug are not working as intended
 
 ### Support that will be added 
 - [x] Show country code
