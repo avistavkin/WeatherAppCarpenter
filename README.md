@@ -8,4 +8,6 @@ The goal is to make a clean, easy to use and good looking application.
 
 ### Support that will be added 
 - [x] Show country code
-- []
+- [x] Search with lon and lat
+- [x] a simple console menu
+- [x] search by city
