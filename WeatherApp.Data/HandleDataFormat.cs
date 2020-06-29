@@ -15,15 +15,17 @@ namespace WeatherApp.Data
         public static WeatherData ConvertJson(JObject data)
         {
             WeatherData weather = new WeatherData();
-            //weather.weather = JsonConvert.DeserializeObject<List<Weather>>(data["weather"].ToString());
             weather.weather = JsonConvert.DeserializeObject<List<Weather>>(data["weather"].ToString());
 
             weather.CountryName = data["name"].ToString();
-            weather.temp = weather.FarenheitToCelcius(double.Parse(data["main"]["temp"].ToString()));
+            weather.temp = data["main"]["temp"].ToString();
             weather.pressure = data["main"]["pressure"].ToString();
             weather.humidity = data["main"]["humidity"].ToString();
             weather.windSpeed = data["wind"]["speed"].ToString();
             weather.deg = data["wind"]["deg"].ToString();
+            weather.lat = data["coord"]["lat"].ToString();
+            weather.lon = data["coord"]["lon"].ToString();
+
             return weather;
         }
     }

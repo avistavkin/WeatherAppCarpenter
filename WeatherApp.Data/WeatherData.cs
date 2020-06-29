@@ -15,20 +15,15 @@ namespace WeatherApp.Data
         public string humidity { get; set; }
         public string windSpeed { get; set; }
         public string deg { get; set; }
+        public string lon { get; set; }
+        public string lat { get; set; }
 
         [JsonPropertyName("weather")]
         public List<Weather> weather { get; set; }
 
-        public string FarenheitToCelcius(double f)
-        {
-            double c = (f - 32) *5 / 9;
-            
-            return c.ToString();
-        }
-
         public override string ToString()
         {
-            return $"City: {CountryName}\nTempratura: {temp}\nPressure: {pressure}\n" +
+            return $"Lon: {lon}\nLat: {lat}\nCity: {CountryName}\nTempratura: {temp}C° \nPressure: {pressure}\n" +
                 $"Humidity: {humidity}\nWind Speed: {windSpeed}\nDeg: {deg}\n" +
                 $"Condition: {weather[0].main}\nDescription: {weather[0].description}";
         }

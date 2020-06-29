@@ -24,9 +24,8 @@ namespace WeatherApp.Data
 
         public async Task<WeatherData> GetAPIData(string userInput)
         {
-            string path = URL+ "q=" + userInput + APIKEY;
+            string path = URL+ "q=" + userInput + "&units=metric" + APIKEY;
             weatherData = await ConnectToClient(path);
-      
             return weatherData;
         }
 
@@ -34,7 +33,7 @@ namespace WeatherApp.Data
         public async Task<WeatherData> GetAPIData(int lat, int lon)
         {
             string path = URL + $"lat={lat}&lon={lon}" + APIKEY;
-            //string path = "https://api.openweathermap.org/data/2.5/onecall?lat=57&lon=12&appid=199fefc6e88c9173d5f50323d8592652";
+            //string path = "https://api.openweathermap.org/data/2.5/onecall?lat=57&lon=12&appid=199fefc6e88c9173d5f50323d8592652";//for onecall support
             weatherData = await ConnectToClient(path);
             return weatherData;
 

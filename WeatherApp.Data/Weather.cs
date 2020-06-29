@@ -17,9 +17,9 @@ namespace WeatherApp.Data
         public string icon { get; set; }
 
         [JsonPropertyName("lon")]
-        public int lon { get; set; }
+        public string lon { get; set; }
 
         [JsonPropertyName("lat")]
-        public int lat { get; set; }
+        public string lat { get; set; }
     }
 }
