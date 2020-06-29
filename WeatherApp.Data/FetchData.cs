@@ -21,10 +21,10 @@ namespace WeatherApp.Data
         private const string URL= "http://api.openweathermap.org/data/2.5/weather?q=";
         private const string APIKEY = "&appid=199fefc6e88c9173d5f50323d8592652";
       
-        public async Task<WeatherData> GetAPIData(string userInput)
+        public async Task<WeatherData> GetAPIData(string userInput,string url)
         {
             WeatherData weatherData = new WeatherData();
-            string path = URL + userInput + APIKEY;
+            string path = url + userInput + APIKEY;
             try
             {
                 //We will now define your HttpClient with your first using statement which will use a IDisposable.
@@ -52,10 +52,9 @@ namespace WeatherApp.Data
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine("Exception Hit------------");
-                Console.WriteLine(e);
+                Console.WriteLine($"location {userInput} does not excist");
             }
             return weatherData;
         }

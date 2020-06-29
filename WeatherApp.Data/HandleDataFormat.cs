@@ -22,8 +22,6 @@ namespace WeatherApp.Data
             weather.humidity = data["main"]["humidity"].ToString();
             weather.windSpeed = data["wind"]["speed"].ToString();
             weather.deg = data["wind"]["deg"].ToString();
-
-            Console.WriteLine(weather.ToString());
             return weather;
         }
     }
