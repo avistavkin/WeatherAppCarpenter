@@ -18,13 +18,30 @@ namespace WeatherApp.Data
 {
     public class FetchData
     {
-        private const string URL= "http://api.openweathermap.org/data/2.5/weather?q=";
+        private const string URL= "http://api.openweathermap.org/data/2.5/weather?";
         private const string APIKEY = "&appid=199fefc6e88c9173d5f50323d8592652";
-      
-        public async Task<WeatherData> GetAPIData(string userInput,string url)
+        private WeatherData weatherData = new WeatherData();
+
+        public async Task<WeatherData> GetAPIData(string userInput)
         {
-            WeatherData weatherData = new WeatherData();
-            string path = url + userInput + APIKEY;
+            string path = URL+ "q=" + userInput + APIKEY;
+            weatherData = await ConnectToClient(path);
+      
+            return weatherData;
+        }
+
+
+        public async Task<WeatherData> GetAPIData(int lat, int lon)
+        {
+            string path = URL + $"lat={lat}&lon={lon}" + APIKEY;
+            //string path = "https://api.openweathermap.org/data/2.5/onecall?lat=57&lon=12&appid=199fefc6e88c9173d5f50323d8592652";
+            weatherData = await ConnectToClient(path);
+            return weatherData;
+
+        }
+
+        private async Task<WeatherData> ConnectToClient(string path)
+        {
             try
             {
                 //We will now define your HttpClient with your first using statement which will use a IDisposable.
@@ -42,11 +59,11 @@ namespace WeatherApp.Data
                             if (data != null)
                             {
                                 var sysData = JObject.Parse(data);
-                                weatherData = HandleDataFormat.ConvertJson(weatherData,sysData);
+                                weatherData = HandleDataFormat.ConvertJson(sysData);
                             }
                             else
                             {
-                                Console.WriteLine("NO Data----------");
+                                Console.WriteLine("NO Data");
                             }
                         }
                     }
@@ -54,8 +71,9 @@ namespace WeatherApp.Data
             }
             catch (Exception)
             {
-                Console.WriteLine($"location {userInput} does not excist");
+                Console.WriteLine("NO Data Found!");
             }
+
             return weatherData;
         }
     }

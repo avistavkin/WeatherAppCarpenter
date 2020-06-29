@@ -12,8 +12,10 @@ namespace WeatherApp.Data
 {
     public class HandleDataFormat
     {
-        public static WeatherData ConvertJson(WeatherData weather, JObject data)
-        {  
+        public static WeatherData ConvertJson(JObject data)
+        {
+            WeatherData weather = new WeatherData();
+            //weather.weather = JsonConvert.DeserializeObject<List<Weather>>(data["weather"].ToString());
             weather.weather = JsonConvert.DeserializeObject<List<Weather>>(data["weather"].ToString());
 
             weather.CountryName = data["name"].ToString();
