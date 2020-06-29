@@ -1,5 +1,6 @@
 # WeatherApp
-Collects weather data, using openweather api
+Collects weather data, using openweather api https://openweathermap.org/
 
-# General
-- Assigna dig själv till ett issue innan du börjar jobba med det.
+# Issues
+- Issues with the tag questions might get added and are up for question
+- Issues with the tag enhancement will be added to the project
