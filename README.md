@@ -15,6 +15,7 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - [ ] OpenWeather Onecall? support
 - [ ] weekly or daily forecast support
 - [ ] more menu options
+### Support that might be added
 - [ ] GUI in some form
 - [ ] UV index
 - [ ] Database support
