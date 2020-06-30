@@ -2,7 +2,7 @@
 Collects weather data, using openweather api https://openweathermap.org/ . <br/>The goal is to make a clean, easy to use and good looking application.
 
 ### Issues
-- Issues with the tag might be added and are up for question and might be added
+- Issues with the tag might be added are up for question and might be added in the future
 - Issues with the tag enhancement will be added to the project
 - Issues with the tag bug are not working as intended
 
