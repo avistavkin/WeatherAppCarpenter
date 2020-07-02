@@ -15,7 +15,8 @@ namespace WeatherApp
             {
                 Console.Write("Search For City Press 1:" +
      "\nSearch by lon and lat Press 2:" +
-     "\nClose Program Press 3:" +
+     "\nCollect multiple city data Press 3:" +
+     "\nClose Program Press 4:" +
      "\n:> ");
 
                 await MainMenu(Console.ReadLine());
@@ -50,6 +51,11 @@ namespace WeatherApp
                     Console.ReadKey();
                     break;
                 case "3":
+                    //preperation for grabbing multple citys
+                    Console.WriteLine("not supported, work in progress..");
+                    Console.ReadKey();
+                    break;
+                case "4":
                     willContinue = false;
                     break;
                 default:
