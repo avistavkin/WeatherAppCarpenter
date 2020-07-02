@@ -12,11 +12,10 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - [x] Search with lon and lat
 - [x] Simple console menu
 - [x] Search by city
-- [ ] Grab several citys data
-- [ ] OpenWeather Onecall? support
+- [x] Grab several citys data
 - [ ] weekly or daily forecast support
-- [ ] more menu options
 ### Support that might be added
+- [ ] OpenWeather Onecall? support
 - [ ] GUI in some form
 - [ ] UV index
 - [ ] Database support
