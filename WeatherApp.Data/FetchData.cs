@@ -18,28 +18,33 @@ namespace WeatherApp.Data
 {
     public class FetchData
     {
-        private const string URL= "http://api.openweathermap.org/data/2.5/weather?";
+        #region url data
+        private const string URL= "http://api.openweathermap.org/data/2.5/";
         private const string APIKEY = "&appid=199fefc6e88c9173d5f50323d8592652";
         private const string MetricUnits = "&units=metric";
+        #endregion
         private WeatherData weatherData = new WeatherData();
 
-        public async Task<WeatherData> GetAPIData(string userInput)
+        #region
+        public async Task<WeatherData> GetAPIData(string userInput)//grab data by city name
         {
-            string path = URL+ "q=" + userInput + MetricUnits + APIKEY;
+            string weatherForCity = $"weather?q=+{userInput}";
+            string path = URL + weatherForCity + MetricUnits + APIKEY;
             weatherData = await ConnectToClient(path);
             return weatherData;
         }
 
 
-        public async Task<WeatherData> GetAPIData(int lat, int lon)
+        public async Task<WeatherData> GetAPIData(int lat, int lon)//grab data by coords
         {
-            string path = URL + $"lat={lat}&lon={lon}"+MetricUnits+ APIKEY;
+            string weatherForCoord = $"weather?lat={lat}&lon={lon}";
+            string path = URL + weatherForCoord + MetricUnits + APIKEY;
             //string path = "https://api.openweathermap.org/data/2.5/onecall?lat=57&lon=12&appid=199fefc6e88c9173d5f50323d8592652";//for onecall support
             weatherData = await ConnectToClient(path);
             return weatherData;
 
         }
-
+        #endregion
         private async Task<WeatherData> ConnectToClient(string path)
         {
             try

@@ -17,6 +17,7 @@ namespace WeatherApp.Data
             WeatherData weather = new WeatherData();
             weather.weather = JsonConvert.DeserializeObject<List<WeatherData>>(data["weather"].ToString());//convert Json object to WeatherData object
 
+            weather.id = data["sys"]["id"].ToString();
             weather.Country = data["sys"]["country"].ToString();
             weather.CityName = data["name"].ToString();
             weather.temp = data["main"]["temp"].ToString();
