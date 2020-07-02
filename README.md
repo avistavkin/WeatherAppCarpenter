@@ -9,10 +9,10 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 
 ### Support that will be added 
 - [x] Show country code
-- [x] Search with lon and lat
 - [x] Simple console menu
-- [x] Search by city
-- [x] Grab several citys data
+- [x] Search for a city
+- [x] Search with lon and lat
+- [x] Grab data from multiple cities
 - [ ] weekly or daily forecast support
 ### Support that might be added
 - [ ] OpenWeather Onecall? support
