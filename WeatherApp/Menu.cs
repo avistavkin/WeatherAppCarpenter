@@ -9,6 +9,7 @@ namespace WeatherApp
     class Menu
     {
         static bool willContinue = true;
+        static FetchData data = new FetchData();
         public static async Task RunProgram()
         {
             while (willContinue.Equals(true))
@@ -28,7 +29,6 @@ namespace WeatherApp
         {
             string url = string.Empty;
             string input = string.Empty;
-            FetchData data = new FetchData();
             Console.Clear();
             switch (userInput)
             {
@@ -51,8 +51,11 @@ namespace WeatherApp
                     Console.ReadKey();
                     break;
                 case "3":
-                    //preperation for grabbing multple citys
-                    Console.WriteLine("not supported, work in progress..");
+                    //List<WeatherData> listOfWeatherData = await AddCityNames();
+                    foreach(var s in await AddCityNames())
+                    {
+                        Console.WriteLine(await data.GetAPIData(s.CityName)+"\n----------------------------");
+                    }
                     Console.ReadKey();
                     break;
                 case "4":
@@ -61,6 +64,51 @@ namespace WeatherApp
                 default:
                     break;
             }
+        }
+
+        private static async Task <List<WeatherData>> AddCityNames()
+        {
+            List<WeatherData> listOfWeatherData = new List<WeatherData>();
+            Console.Clear();
+            int loop = 0;
+            bool continueLoop = true;
+
+
+            while (continueLoop.Equals(true))
+            {
+                if (!loop.Equals(20))
+                {
+                    if(loop <= 0)
+                    {
+                        Console.Write("Type nothing and press enter to exit and continue\nEnter city name: ");
+                    }
+                    else
+                    {
+                        Console.Write("Enter another city name: ");
+                    }
+                    string input = Console.ReadLine();
+                    if (!input.Equals(string.Empty))
+                    {
+                        listOfWeatherData.Add(await data.GetAPIData(input));
+                        //cityID[loop] = int.Parse(weatherData.id);
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("----------------------------");
+                        continueLoop = false;
+                        //return cityID;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"loop equals {loop}");
+                    continueLoop = false;
+                }
+                loop++;
+            }
+
+            return listOfWeatherData; 
         }
     }
 }
