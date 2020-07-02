@@ -51,7 +51,6 @@ namespace WeatherApp
                     Console.ReadKey();
                     break;
                 case "3":
-                    //List<WeatherData> listOfWeatherData = await AddCityNames();
                     foreach(var s in await AddCityNames())
                     {
                         Console.WriteLine(await data.GetAPIData(s.CityName)+"\n----------------------------");
