@@ -75,7 +75,7 @@ namespace WeatherApp
 
             while (continueLoop.Equals(true))
             {
-                #region
+                #region menu prompts
                 if (listOfWeatherData.Count < 1)
                 {
                     Console.Write("Type nothing and press enter to exit and continue\nEnter city name: ");
@@ -88,7 +88,7 @@ namespace WeatherApp
                 }
                 #endregion
 
-                #region 
+                #region handle user input
                 if (!input.Equals(string.Empty))
                     {
                         listOfWeatherData.Add(await data.GetAPIData(input));
