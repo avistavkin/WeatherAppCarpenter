@@ -62,7 +62,7 @@ namespace WeatherApp
                     break;
                 default:
                     break;
-            }
+            }   
         }
 
         private static async Task <List<WeatherData>> AddCityNames()
@@ -71,40 +71,41 @@ namespace WeatherApp
             Console.Clear();
             int loop = 0;
             bool continueLoop = true;
-
+            string input = string.Empty;
 
             while (continueLoop.Equals(true))
             {
-                if (!loop.Equals(20))
+                #region
+                if (listOfWeatherData.Count < 1)
                 {
-                    if(loop <= 0)
-                    {
-                        Console.Write("Type nothing and press enter to exit and continue\nEnter city name: ");
-                    }
-                    else
-                    {
-                        Console.Write("Enter another city name: ");
-                    }
-                    string input = Console.ReadLine();
-                    if (!input.Equals(string.Empty))
+                    Console.Write("Type nothing and press enter to exit and continue\nEnter city name: ");
+                    input = Console.ReadLine();
+                }
+                else
+                {
+                    Console.Write("Enter another city name: ");
+                    input = Console.ReadLine();
+                }
+                #endregion
+
+                #region 
+                if (!input.Equals(string.Empty))
                     {
                         listOfWeatherData.Add(await data.GetAPIData(input));
-                        //cityID[loop] = int.Parse(weatherData.id);
+                    }
+                    else if(listOfWeatherData.Count < 1 && input.Equals(string.Empty))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Input cant be empty");
+                        continueLoop = false;
                     }
                     else
                     {
                         Console.Clear();
                         Console.WriteLine("----------------------------");
                         continueLoop = false;
-                        //return cityID;
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"loop equals {loop}");
-                    continueLoop = false;
-                }
-                loop++;
+                #endregion
             }
 
             return listOfWeatherData; 
