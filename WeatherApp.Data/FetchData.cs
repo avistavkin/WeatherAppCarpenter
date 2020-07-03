@@ -18,14 +18,15 @@ namespace WeatherApp.Data
 {
     public class FetchData
     {
-        #region url data
+        #region url data varibles
         private const string URL= "http://api.openweathermap.org/data/2.5/";
         private const string APIKEY = "&appid=199fefc6e88c9173d5f50323d8592652";
         private const string MetricUnits = "&units=metric";
         #endregion
+
         private WeatherData weatherData = new WeatherData();
 
-        #region
+        #region creating url and connecting to client
         public async Task<WeatherData> GetAPIData(string userInput)//grab data by city name
         {
             string weatherForCity = $"weather?q=+{userInput}";
@@ -45,6 +46,8 @@ namespace WeatherApp.Data
 
         }
         #endregion
+
+        #region connecting to api and grabbing data, convert to json
         private async Task<WeatherData> ConnectToClient(string path)
         {
             try
@@ -63,7 +66,7 @@ namespace WeatherApp.Data
                             }
                             else
                             {
-                                Console.WriteLine("NO Data");
+                                Console.WriteLine("NO Data Found");
                             }
                         }
                     }
@@ -76,6 +79,7 @@ namespace WeatherApp.Data
 
             return weatherData;
         }
+    #endregion
     }
 
 
