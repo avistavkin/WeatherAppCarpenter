@@ -7,19 +7,21 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - Issues with the tag enhancement will be added to the project
 - Issues with the tag bug are not working as intended
 
+### Supports
+- Show weather condition using city name
+- Show weather condition using lon and lat
+- Show weather condition from multiple cities
+
+
 ### Support that will be added 
-- [x] Show country code
-- [x] Simple console menu
-- [x] Search for a city
-- [x] Search with lon and lat
-- [x] Grab data from multiple cities
 - [ ] weekly or daily forecast support
+
 ### Support that might be added
 - [ ] OpenWeather Onecall? support
-- [ ] GUI in some form
 - [ ] UV index
 - [ ] Database support
 - [ ] Weather trigger support
 - [ ] Better threading support if needed
 - [ ] Blazor webAssembly support
 - [ ] color and style to console menu
+- [ ] Mvc version 
