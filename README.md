@@ -14,12 +14,13 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - [x] Search with lon and lat
 - [x] Grab data from multiple cities
 - [ ] weekly or daily forecast support
+
 ### Support that might be added
 - [ ] OpenWeather Onecall? support
-- [ ] GUI in some form
 - [ ] UV index
 - [ ] Database support
 - [ ] Weather trigger support
 - [ ] Better threading support if needed
 - [ ] Blazor webAssembly support
 - [ ] color and style to console menu
+- [ ] Mvc version 
