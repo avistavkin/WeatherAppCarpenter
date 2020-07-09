@@ -67,6 +67,7 @@ namespace WeatherApp.Data
                             else
                             {
                                 Console.WriteLine("NO Data Found");
+                                return null;
                             }
                         }
                     }
