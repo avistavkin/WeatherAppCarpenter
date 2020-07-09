@@ -12,10 +12,20 @@ namespace WeatherApp.Data
 {
     public class HandleDataFormat
     {
-        public static WeatherData DeserializeJsonObject(JObject data)
+        public static WeatherData DeserializeJsonObject(JObject data,int value)
         {
             WeatherData weather = new WeatherData();
-            weather.weather = JsonConvert.DeserializeObject<List<WeatherData>>(data["weather"].ToString());//convert Json object to WeatherData object
+            if (value.Equals(1))
+            {
+                weather.weather = JsonConvert.DeserializeObject<List<WeatherData>>(data["weather"].ToString());//convert Json object to WeatherData object
+            }
+            /*
+            else//forcast support, borked atm
+            {
+                weather.weather = JsonConvert.DeserializeObject<List<WeatherData>>(data["0"].ToString());
+            }*/
+
+
 
             weather.id = data["sys"]["id"].ToString();
             weather.Country = data["sys"]["country"].ToString();
