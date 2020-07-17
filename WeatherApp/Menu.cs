@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Data;
+using System.Linq;
 
 namespace WeatherApp
 {
@@ -10,6 +11,7 @@ namespace WeatherApp
     {
         static bool willContinue = true;
         static FetchData data = new FetchData();
+        private static WeatherData weathers;
         public static async Task RunProgram()
         {
             while (willContinue.Equals(true))
@@ -37,7 +39,9 @@ namespace WeatherApp
                     Console.Write("Enter City Name: ");
                     input = Console.ReadLine();
                     Console.Clear();
-                    Console.Write(await data.GetAPIData(input,int.Parse(userInput)));
+                    weathers = await data.GetAPIData(input, int.Parse(userInput));
+                    Console.Write(weathers.name);
+
                     Console.ReadKey();
                     break;
                 case "2":
@@ -48,13 +52,14 @@ namespace WeatherApp
                     input = Console.ReadLine();
                     int lon = int.Parse(input);
                     Console.Clear();
-                    Console.Write(await data.GetAPIData(lat,lon));
+                    weathers = await data.GetAPIData(lat,lon);
+                        Console.Write(weathers.name);
                     Console.ReadKey();
                     break;
                 case "3":
                     foreach(var s in await AddCityNames(int.Parse(userInput)))
                     {
-                        Console.WriteLine(await data.GetAPIData(s.CityName,int.Parse(userInput))+"\n----------------------------");
+                        Console.WriteLine(s + "\n----------------------------");
                     }
                     Console.ReadKey();
                     break;
@@ -77,7 +82,6 @@ namespace WeatherApp
         {
             List<WeatherData> listOfWeatherData = new List<WeatherData>();
             Console.Clear();
-            int loop = 0;
             bool continueLoop = true;
             string input = string.Empty;
 
@@ -98,9 +102,10 @@ namespace WeatherApp
 
                 #region handle user input
                 if (!input.Equals(string.Empty))
-                    {
-                        listOfWeatherData.Add(await data.GetAPIData(input,value));
-                    }
+                {
+                    weathers = await data.GetAPIData(input, 1);
+                    listOfWeatherData.Add(weathers);
+                }
                     else if(listOfWeatherData.Count < 1 && input.Equals(string.Empty))
                     {
                         Console.Clear();

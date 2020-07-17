@@ -1,17 +1,5 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
+﻿using System;
 using System.Net.Http;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace WeatherApp.Data
@@ -27,22 +15,20 @@ namespace WeatherApp.Data
         #endregion
 
         private WeatherData weatherData = new WeatherData();
-
         #region creating url and connecting to client
-        public async Task<WeatherData> GetAPIData(string userInput, int value)//grab data by city name
+        public async Task <WeatherData> GetAPIData(string userInput, int value)//grab data by city name
         {
             if (value.Equals(GrabWeatherData))
             {
                 string weatherForCity = $"weather?q=+{userInput}";
                 string path = URL + weatherForCity + MetricUnits + APIKEY;
-                weatherData = await ConnectToClient(path,value);
+                weatherData = await ConnectToClient(path);
             }
             else if (value.Equals(GrabForCastData))
             {
                 string weatherForCity = $"forecast?q={userInput}";
                 string path = URL + weatherForCity + APIKEY;
-                weatherData = await ConnectToClient(path,value);
-                // https://api.openweathermap.org/data/2.5/forecast?q=London&appid=199fefc6e88c9173d5f50323d8592652
+                weatherData = await ConnectToClient(path);
             }
             return weatherData;
         }
@@ -52,15 +38,14 @@ namespace WeatherApp.Data
         {
             string weatherForCoord = $"weather?lat={lat}&lon={lon}";
             string path = URL + weatherForCoord + MetricUnits + APIKEY;
-            //string path = "https://api.openweathermap.org/data/2.5/onecall?lat=57&lon=12&appid=199fefc6e88c9173d5f50323d8592652";//for onecall support
-            weatherData = await ConnectToClient(path,1);
+            weatherData = await ConnectToClient(path);
             return weatherData;
         }
 
         #endregion
 
         #region connecting to api and grabbing data, convert to json
-        private async Task<WeatherData> ConnectToClient(string path,int value)
+        private async Task<WeatherData> ConnectToClient(string path)
         {
             try
             {
@@ -70,11 +55,11 @@ namespace WeatherApp.Data
                     {
                         using (HttpContent content = res.Content)
                         {
-                            var data = await content.ReadAsStringAsync();
-                            if (data != null)
+                            var response = await content.ReadAsStringAsync();
+                            if (response != null)
                             {
-                                var sysData = JObject.Parse(data);//convert to json 
-                                weatherData = HandleDataFormat.DeserializeJsonObject(sysData,value);
+                          
+                                weatherData = HandleDataFormat.DeserializeJsonObject(response);
                             }
                             else
                             {
@@ -85,9 +70,9 @@ namespace WeatherApp.Data
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Console.WriteLine("NO Data Found!");
+                Console.WriteLine("NO Data Found!" + $"{e}");
             }
 
             return weatherData;
