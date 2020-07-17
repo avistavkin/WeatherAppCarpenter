@@ -14,7 +14,8 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 
 
 ### Support that will be added 
-- [ ] weekly or daily forecast support
+- [ ] Daily forecast support
+- [ ] Support forcast up to 4 days
 
 ### Support that might be added
 - [ ] OpenWeather Onecall? support
