@@ -15,7 +15,7 @@ namespace WeatherApp
         }
         public static void PrintFourDaysForecast(WeatherData weather)
         {
-            Console.WriteLine($"4 days weather forecast {weather.city.name} lon-{weather.city.coord.lon} : lat-{weather.city.coord.lat}");
+            Console.WriteLine($"4 days weather forecast {weather.city.name}, Coords: {weather.city.coord.lon},{weather.city.coord.lat}");
             foreach(var s in weather.list)
             {
                 Console.WriteLine($"------\nDate: {s.dt_txt}\nTemperatur: {s.main.temp}\nHighest temperature: {s.main.temp_max}\nLowest temperatur: {s.main.temp_min}\nFeels like: {s.main.feels_like}\nHumidity: {s.main.humidity}\nPressure: {s.main.pressure}" +
