@@ -19,7 +19,7 @@ namespace WeatherApp
                 Console.Write("Search For City Press 1:" +
      "\nSearch by lon and lat Press 2:" +
      "\nCollect multiple city data Press 3:" +
-     "\nWeather Forcast Press 4:" +
+     "\n(Broken) Weather Forcast Press 4:" +
      "\nClose Program Press 5:" +
      "\n:> ");
 
@@ -39,7 +39,9 @@ namespace WeatherApp
                     Console.Write("Enter City Name: ");
                     input = Console.ReadLine();
                     Console.Clear();
-                    Console.WriteLine(MenuStyle.PrintWeatherCondition(await data.GetAPIData(input, int.Parse(userInput))));
+                    weathers = await data.GetAPIData(input, int.Parse(userInput));
+                    Console.Write(weathers.name);
+
                     Console.ReadKey();
                     break;
                 case "2":
@@ -50,13 +52,14 @@ namespace WeatherApp
                     input = Console.ReadLine();
                     int lon = int.Parse(input);
                     Console.Clear();
-                    Console.Write(MenuStyle.PrintWeatherCondition(await data.GetAPIData(lat, lon)));
+                    weathers = await data.GetAPIData(lat,lon);
+                        Console.Write(weathers.name);
                     Console.ReadKey();
                     break;
                 case "3":
                     foreach(var s in await AddCityNames(int.Parse(userInput)))
                     {
-                        Console.WriteLine(s.name + "\n----------------------------");
+                        Console.WriteLine(s + "\n----------------------------");
                     }
                     Console.ReadKey();
                     break;
@@ -64,7 +67,7 @@ namespace WeatherApp
                     Console.Write("Enter City Name: ");
                     input = Console.ReadLine();
                     Console.Clear();
-                    MenuStyle.PrintForeCastCondition(await data.GetAPIData(input, int.Parse(userInput)));
+                    Console.Write(await data.GetAPIData(input, int.Parse(userInput)));
                     Console.ReadKey();
                     break;
                 case "5":

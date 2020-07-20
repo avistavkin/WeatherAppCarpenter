@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WeatherApp.Data
 {
-    public class Coord
+    public class Coords
     {
         public double lat { get; set; }
         public double lon { get; set; }
