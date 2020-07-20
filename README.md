@@ -17,10 +17,10 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - Daily forecast support
 
 ### Support that might be added
-- [ ] UV index
-- [ ] Database support
-- [ ] Weather trigger support
-- [ ] Better threading support if needed
-- [ ] Blazor webAssembly support
-- [ ] color and style to console menu
-- [ ] Mvc version 
+-  UV index
+-  Database support
+-  Weather trigger support
+-  Better threading support if needed
+-  Blazor webAssembly support
+-  Color and style to console menu
+-  Mvc version 
