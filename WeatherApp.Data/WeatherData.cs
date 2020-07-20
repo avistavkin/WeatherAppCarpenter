@@ -12,13 +12,12 @@ namespace WeatherApp.Data
         public int message { get; set; }
         public int cnt { get; set; }
         public List<List> list { get; set; }
+        public List<Weather> weather { get; set;}
         public City city { get; set; }
         public Wind Wind { get; set; }
+        public Main main { get; set; }
+        public Coords coords { get; set;}
         public string name { get; set; }
-        
-        public override string ToString()
-        {
-            return $"name: {name}";
-        }
+
     }
 }

@@ -39,9 +39,7 @@ namespace WeatherApp
                     Console.Write("Enter City Name: ");
                     input = Console.ReadLine();
                     Console.Clear();
-                    weathers = await data.GetAPIData(input, int.Parse(userInput));
-                    Console.Write(weathers.name);
-
+                    Console.WriteLine(OutPut.PrintWeatherCondition(await data.GetAPIData(input, int.Parse(userInput))));
                     Console.ReadKey();
                     break;
                 case "2":
@@ -52,8 +50,7 @@ namespace WeatherApp
                     input = Console.ReadLine();
                     int lon = int.Parse(input);
                     Console.Clear();
-                    weathers = await data.GetAPIData(lat,lon);
-                        Console.Write(weathers.name);
+                    Console.WriteLine(OutPut.PrintWeatherCondition(await data.GetAPIData(lat,lon)));
                     Console.ReadKey();
                     break;
                 case "3":
@@ -67,7 +64,7 @@ namespace WeatherApp
                     Console.Write("Enter City Name: ");
                     input = Console.ReadLine();
                     Console.Clear();
-                    Console.Write(await data.GetAPIData(input, int.Parse(userInput)));
+                    OutPut.PrintFourDaysForecast(await data.GetAPIData(input, int.Parse(userInput)));
                     Console.ReadKey();
                     break;
                 case "5":

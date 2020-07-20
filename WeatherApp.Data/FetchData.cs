@@ -27,7 +27,7 @@ namespace WeatherApp.Data
             else if (value.Equals(GrabForCastData))
             {
                 string weatherForCity = $"forecast?q={userInput}";
-                string path = URL + weatherForCity + APIKEY;
+                string path = URL + weatherForCity + MetricUnits +APIKEY;
                 weatherData = await ConnectToClient(path);
             }
             return weatherData;
@@ -58,7 +58,6 @@ namespace WeatherApp.Data
                             var response = await content.ReadAsStringAsync();
                             if (response != null)
                             {
-                          
                                 weatherData = HandleDataFormat.DeserializeJsonObject(response);
                             }
                             else
