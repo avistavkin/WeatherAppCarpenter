@@ -14,11 +14,8 @@ namespace WeatherApp.Data
         public List<List> list { get; set; }
         public City city { get; set; }
         public Wind Wind { get; set; }
+        public Main Main { get; set; }
+        public Coord Coord { get; set; }
         public string name { get; set; }
-        
-        public override string ToString()
-        {
-            return $"name: {name}";
-        }
     }
 }
