@@ -19,7 +19,7 @@ namespace WeatherApp
                 Console.Write("Search For City Press 1:" +
      "\nSearch by lon and lat Press 2:" +
      "\nCollect multiple city data Press 3:" +
-     "\n(Broken) Weather Forcast Press 4:" +
+     "\nWeather Forcast Press 4:" +
      "\nClose Program Press 5:" +
      "\n:> ");
 
@@ -56,7 +56,7 @@ namespace WeatherApp
                 case "3":
                     foreach(var s in await AddCityNames(int.Parse(userInput)))
                     {
-                        Console.WriteLine(s + "\n----------------------------");
+                        Console.WriteLine(OutPut.PrintWeatherCondition(s)+"--------------");
                     }
                     Console.ReadKey();
                     break;
