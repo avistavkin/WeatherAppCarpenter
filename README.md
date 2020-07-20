@@ -11,11 +11,10 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - Show weather condition using city name
 - Show weather condition using lon and lat
 - Show weather condition from multiple cities
-
+- Forecast support
 
 ### Support that will be added 
-- [ ] Daily forecast support
-- [ ] Support forcast up to 4 days
+- Daily forecast support
 
 ### Support that might be added
 - [ ] OpenWeather Onecall? support
