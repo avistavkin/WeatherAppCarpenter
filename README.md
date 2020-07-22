@@ -1,6 +1,6 @@
 # General
-Collects weather data, using openweather api https://openweathermap.org/ . <br/>The goal is to challange myself, and I want to make a clean,
-easy to use and good looking application.
+Collects weather data, using openweather api https://openweathermap.org/. 
+Will support anything that's free to collect from there api. 
 
 
 ### Issues
