@@ -11,7 +11,7 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - Show weather condition using city name
 - Show weather condition using lon and lat
 - Show weather condition from multiple cities
-- 4 days Forecast support
+- Four days Forecast support
 
 ### Support that will be added 
 - Daily forecast support
