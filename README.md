@@ -10,7 +10,7 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 ### Supports
 - Show weather condition using city name
 - Show weather condition using lon and lat
-- Show weather condition from multiple cities
+- Show weather condition for multiple cities
 - Four days weather forecast 
 
 ### Support that will be added 
