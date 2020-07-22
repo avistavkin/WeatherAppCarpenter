@@ -1,5 +1,5 @@
 # General
-Collects weather data, using openweather api https://openweathermap.org/. 
+Collects weather data using openweather api https://openweathermap.org/. 
 Will collecting most of the data which is free to collect from there api. 
 
 
