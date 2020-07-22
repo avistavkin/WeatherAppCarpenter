@@ -1,6 +1,6 @@
 # General
 Collects weather data, using openweather api https://openweathermap.org/. 
-Will support anything that's free to collect from there api. 
+Will support most which that's free to collect from there api. 
 
 
 ### Issues
