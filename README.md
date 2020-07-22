@@ -14,7 +14,7 @@ Collects weather data, using openweather api https://openweathermap.org/ . <br/>
 - Four days weather forecast 
 
 ### Support that will be added 
-- Daily forecast support
+- Daily weather forecast 
 
 ### Support that might be added
 -  UV index
