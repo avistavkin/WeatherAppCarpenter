@@ -7,7 +7,8 @@ Will collect most of the data which is free to collect from there api.
 - Issues with the tag enhancement will be added to the project
 - Issues with the tag bug are not working as intended
 
-### [Progress](https://github.com/users/Carpenteri1/projects/3)
+### Progress
+- Kanbanboard [here](https://github.com/users/Carpenteri1/projects/3) 
 
 ### Supports
 - Show weather condition using city name
