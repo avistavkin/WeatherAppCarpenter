@@ -15,8 +15,6 @@ Will collect most of the data which is free to collect from there api.
 - Show weather condition using lon and lat
 - Show weather condition for multiple cities
 - Four days weather forecast 
-
-### Support that will be added 
 - Daily weather forecast 
 
 ### Support that might be added
