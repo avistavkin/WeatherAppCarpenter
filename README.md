@@ -8,7 +8,7 @@ Will collect most of the data which is free to collect from there api.
 - Issues with the tag bug are not working as intended
 
 ### Progress
-- Kanbanboard [here](https://github.com/users/Carpenteri1/projects/3) 
+- Kanban board [here](https://github.com/users/Carpenteri1/projects/3) 
 
 ### Supports
 - Show weather condition using city name
@@ -27,4 +27,4 @@ Will collect most of the data which is free to collect from there api.
 -  Mvc version 
 
 ## Download
-[Here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip)
+Download latest version [Here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip)
