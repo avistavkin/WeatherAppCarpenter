@@ -27,4 +27,4 @@ Will collect most of the data which is free to collect from there api.
 -  Mvc version 
 
 ## Download
-Download latest version [Here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip)
+Download latest version [here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip)
