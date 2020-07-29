@@ -18,11 +18,11 @@ Will collect most of the data which is free to collect from there api.
 - Daily weather forecast 
 
 ### Support that might be added
--  UV index
+
 -  Database support
 -  Weather trigger support
 -  Better threading support if needed
--  Blazor webAssembly support
+-  Blazor webAssembly version
 -  Color and style to console menu
 -  Mvc version 
 
