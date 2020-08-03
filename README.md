@@ -10,7 +10,7 @@ Will collect most of the data which is free to collect from there api.
 ### Progress
 - Kanban board [here](https://github.com/users/Carpenteri1/projects/3) 
 
-### Supports
+### Supports that will be added
 - Show weather condition using city name
 - Show weather condition using lon and lat
 - Show weather condition for multiple cities
@@ -24,5 +24,3 @@ Will collect most of the data which is free to collect from there api.
 -  Better threading support if needed
 -  Blazor webAssembly version
 
-## Download
-Download latest version [here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip)
