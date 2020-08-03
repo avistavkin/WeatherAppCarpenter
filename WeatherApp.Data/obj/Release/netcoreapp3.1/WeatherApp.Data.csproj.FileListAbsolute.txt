@@ -1,0 +1,17 @@
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\WeatherApp.Data.exe
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\WeatherApp.Data.deps.json
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\WeatherApp.Data.runtimeconfig.json
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\WeatherApp.Data.runtimeconfig.dev.json
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\WeatherApp.Data.dll
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\WeatherApp.Data.pdb
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\bin\Release\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\obj\Release\netcoreapp3.1\WeatherApp.Data.csprojAssemblyReference.cache
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\obj\Release\netcoreapp3.1\WeatherApp.Data.AssemblyInfoInputs.cache
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\obj\Release\netcoreapp3.1\WeatherApp.Data.AssemblyInfo.cs
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\obj\Release\netcoreapp3.1\WeatherApp.Data.csproj.CoreCompileInputs.cache
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\obj\Release\netcoreapp3.1\WeatherApp.Data.csproj.CopyComplete
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\obj\Release\netcoreapp3.1\WeatherApp.Data.dll
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\obj\Release\netcoreapp3.1\WeatherApp.Data.pdb
+C:\Users\Niclas\source\repos\C#Development\WeatherApp\WeatherApp.Data\obj\Release\netcoreapp3.1\WeatherApp.Data.genruntimeconfig.cache
