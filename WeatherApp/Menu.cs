@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace WeatherApp
 {
-    class Menu
+    public class Menu
     {
         private static bool willContinue = true;
         private static FetchData data = new FetchData();

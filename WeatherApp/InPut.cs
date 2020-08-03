@@ -13,33 +13,68 @@ namespace WeatherApp
         public static async Task<string> InPutString(int i)
        {
             string apiResponse = string.Empty;
+            string input = string.Empty;
 
             if (i.Equals(1))
             {
-                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(EnterStringValue("Enter city name: "),i));
+                try
+                {
+                    input = EnterStringValue("Enter city name: ");
+                    apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(input, i));
+                }
+                catch (Exception e)
+                {
+                    Console.Clear();
+                    Console.WriteLine(e.Message);
+                }
             }
             else if (i.Equals(2))
             {
-                int lon = int.Parse(EnterStringValue("Enter lat value: "));
-                int lat = int.Parse(EnterStringValue("Enter lon value: "));
-                Console.Clear();
-                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(lat, lon));
-              
-            }
-            else if (i.Equals(3))
-            {
-                foreach (var s in await AddCityNames(i))
+                try
                 {
-                    apiResponse += "\n" + OutPut.PrintWeatherCondition(s) + "\n--------------";
+                    int lon = int.Parse(EnterStringValue("Enter lat value: "));
+                    int lat = int.Parse(EnterStringValue("Enter lon value: "));
+                    Console.Clear();
+                    apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(lat, lon));
                 }
+                catch (Exception e)
+                {
+                    Console.Clear();
+                    Console.WriteLine(e.Message);
+                }
+
+            }
+            else if (i.Equals(3))//TODO fix catch exception here
+            {
+                    foreach (var s in await AddCityNames(i))
+                    {
+                        apiResponse += "\n" + OutPut.PrintWeatherCondition(s) + "\n--------------";
+                    }
             }
             else if (i.Equals(4))
             {
-               apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
+                try
+                {
+                    apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
+                }
+                catch(Exception e)
+                {
+                    Console.Clear();
+                    Console.WriteLine(e.Message);
+                }
+               
             }
             else if (i.Equals(5))
             {
-                apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
+                try
+                {
+                    apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
+                }
+                catch(Exception e)
+                {
+                    Console.Clear();
+                    Console.WriteLine(e.Message);
+                }
             }
             return apiResponse;
        }
@@ -47,7 +82,13 @@ namespace WeatherApp
         private static string EnterStringValue(string output)
         {
             Console.Write(output);
-            return Console.ReadLine();
+            string value = Console.ReadLine();
+            if (value.Equals(string.Empty))
+            {
+                throw new Exception("Input cant be empty");
+            }
+
+            return value;
         }
 
         private static async Task<List<WeatherData>> AddCityNames(int value)

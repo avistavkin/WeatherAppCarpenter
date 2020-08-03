@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,19 @@ namespace WeatherApp
 
         public static string PrintWeatherCondition(WeatherData weather)
         {
-            string data = $"City: {weather.name}\nTemperature: {weather.main.temp}\nHighest temperature: {weather.main.temp_max}\nLowest temperatur: {weather.main.temp_min}" +
-                $"\nFeels like: {weather.main.feels_like}\nHumidity: {weather.main.humidity}\nPressure: {weather.main.pressure}\nWindspeed: {weather.Wind.speed}\nDeg: {weather.Wind.deg}" +
-                $"\nCondition: {weather.weather[0].main}\nDescription: {weather.weather[0].description}";
+            string data = string.Empty;
+
+            if (weather.Equals(null))
+            {
+                data = "input cant be empty!";
+            }
+            else
+            {
+                data = $"City: {weather.name}\nTemperature: {weather.main.temp}\nHighest temperature: {weather.main.temp_max}\nLowest temperatur: {weather.main.temp_min}" +
+                        $"\nFeels like: {weather.main.feels_like}\nHumidity: {weather.main.humidity}\nPressure: {weather.main.pressure}\nWindspeed: {weather.Wind.speed}\nDeg: {weather.Wind.deg}" +
+                        $"\nCondition: {weather.weather[0].main}\nDescription: {weather.weather[0].description}";
+            }
+
             return data;
         }
         public static string PrintFourDaysForecast(WeatherData weather)

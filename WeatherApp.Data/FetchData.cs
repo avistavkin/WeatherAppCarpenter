@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -23,13 +24,29 @@ namespace WeatherApp.Data
             {
                 string weatherForCity = $"weather?q=+{userInput}";
                 string path = URL + weatherForCity + MetricUnits + APIKEY;
-                weatherData = await ConnectToClient(path);
+                try
+                {
+                    weatherData = await ConnectToClient(path);
+                }catch(Exception e)
+                {
+                    Console.Clear();
+                    Console.WriteLine(e.Message);
+                }
             }
             else if (value.Equals(GrabDailyForeCastData) || value.Equals(GrabWeeklyForeCastData))
             {
                 string weatherForCity = $"forecast?q={userInput}";
                 string path = URL + weatherForCity + MetricUnits +APIKEY;
-                weatherData = await ConnectToClient(path);
+
+                try
+                {
+                    weatherData = await ConnectToClient(path);
+                }
+                catch (Exception e)
+                {
+                    Console.Clear();
+                    Console.WriteLine(e.Message);
+                }
             }
             return weatherData;
         }
@@ -57,14 +74,13 @@ namespace WeatherApp.Data
                         using (HttpContent content = res.Content)
                         {
                             var response = await content.ReadAsStringAsync();
-                            if (response != null)
+                            if(response.Contains("404").Equals(true))
                             {
-                                weatherData = HandleDataFormat.DeserializeJsonObject(response);
+                                throw new Exception("No data found, wrong input ?");
                             }
                             else
                             {
-                                Console.WriteLine("NO Data Found");
-                                return null;
+                                weatherData = HandleDataFormat.DeserializeJsonObject(response);
                             }
                         }
                     }
@@ -72,9 +88,8 @@ namespace WeatherApp.Data
             }
             catch (Exception e)
             {
-                Console.WriteLine("NO Data Found!" + $"{e}");
+                Console.WriteLine(e.Message);
             }
-
             return weatherData;
         }
     #endregion
