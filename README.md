@@ -23,8 +23,6 @@ Will collect most of the data which is free to collect from there api.
 -  Weather trigger support
 -  Better threading support if needed
 -  Blazor webAssembly version
--  Color and style to console menu
--  Mvc version 
 
 ## Download
 Download latest version [here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip)
