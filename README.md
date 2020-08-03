@@ -24,5 +24,3 @@ Will collect most of the data which is free to collect from there api.
 -  Better threading support if needed
 -  Blazor webAssembly version
 
-## Download
-Download latest version [here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip)
