@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {}
+    "C:\\Users\\Niclas\\source\\repos\\C#Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
+    "C:\\Users\\Niclas\\source\\repos\\C#Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Niclas\\source\\repos\\C#Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
         "projectName": "WeatherApp.Data",
-        "projectPath": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
+        "projectPath": "C:\\Users\\Niclas\\source\\repos\\C#Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
         "packagesPath": "C:\\Users\\Niclas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\obj\\",
+        "outputPath": "C:\\Users\\Niclas\\source\\repos\\C#Development\\WeatherApp\\WeatherApp.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

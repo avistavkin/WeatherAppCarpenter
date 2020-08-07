@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QYKlkuu6lyyDzkZBsMEZnOEBA+W9VON9Fvqas+puBEURIoAY+JrJN19YI4V000OmN3NZdBnOOCxqZ7F3qE12Xw==",
+  "dgSpecHash": "oaIIblAKJLyiQcnTRs+PtyuI1oTwBqWpY/wP+jUApgQTn4TjMA6tuCf5oiC+BXAsM1vhMy617PT3PR/A6/PGOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
+  "projectFilePath": "C:\\Users\\Niclas\\source\\repos\\C#Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Niclas\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
