@@ -25,7 +25,7 @@ Will collect most of the data which is free to collect from there api.
 -  Blazor webAssembly version
 
 ### Licens
-[licens](https://github.com/Carpenteri1/WeatherApp/blob/master/LICENSE)
+- Read lincens [here](https://github.com/Carpenteri1/WeatherApp/blob/master/LICENSE)
 
 ### Download 
 - Console version [here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip) 
