@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace WeatherApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Title = "WeatherApp";
+            await Menu.RunProgram();
         }
     }
 }

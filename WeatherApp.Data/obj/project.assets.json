@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "WeatherApp.Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/WeatherApp.Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/WeatherApp.Data.dll": {}
-        }
-      }
-    }
+    ".NETCoreApp,Version=v3.1": {}
   },
-  "libraries": {
-    "WeatherApp.Data/1.0.0": {
-      "type": "project",
-      "path": "../WeatherApp.Data/WeatherApp.Data.csproj",
-      "msbuildProject": "../WeatherApp.Data/WeatherApp.Data.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "WeatherApp.Data >= 1.0.0"
-    ]
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\Niclas\\.nuget\\packages\\": {},
@@ -34,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp\\WeatherApp.csproj",
-      "projectName": "WeatherApp",
-      "projectPath": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp\\WeatherApp.csproj",
+      "projectUniqueName": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
+      "projectName": "WeatherApp.Data",
+      "projectPath": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
       "packagesPath": "C:\\Users\\Niclas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp\\obj\\",
+      "outputPath": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -58,11 +39,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
-              "projectPath": "C:\\Users\\Niclas\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
