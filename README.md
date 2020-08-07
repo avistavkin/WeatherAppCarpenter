@@ -25,4 +25,4 @@ Will collect most of the data which is free to collect from there api.
 -  Blazor webAssembly version
 
 ### Download 
-- Lastest Console Version [here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip) 
+- Console version [here](https://github.com/Carpenteri1/WeatherApp/releases/download/v1.0/Bin.zip) 
