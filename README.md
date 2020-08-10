@@ -24,7 +24,7 @@ Will collect most of the data which is free to collect from there api.
 
 ### Project progress
 - Console version Kanban board [here](https://github.com/users/Carpenteri1/projects/3) 
-- MVC Version Kanban board [here](https://github.com/Carpenteri1/WeatherApp/projects/4)
+- MVC Version Kanban board [here](https://github.com/Carpenteri1/WeatherApp/projects/4). More cards will be added
 
 ### Licens
 - Licens [here](https://github.com/Carpenteri1/WeatherApp/blob/master/LICENSE)
