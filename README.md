@@ -7,9 +7,6 @@ Will collect most of the data which is free to collect from there api.
 - Issues with the tag enhancement will be added to the project
 - Issues with the tag bug are not working as intended
 
-### Project progress
-- Kanban board [here](https://github.com/users/Carpenteri1/projects/3) 
-
 ### Supports
 - Show weather condition in a city
 - Show weather condition using lon and lat
@@ -24,6 +21,10 @@ Will collect most of the data which is free to collect from there api.
 - Weather Trigger Support
 - Database Support
 - Blazor Web Assembly version
+
+### Project progress
+- Console version Kanban board [here](https://github.com/users/Carpenteri1/projects/3) 
+- MVC Version Kanban board [here](https://github.com/Carpenteri1/WeatherApp/projects/4)
 
 ### Licens
 - Licens [here](https://github.com/Carpenteri1/WeatherApp/blob/master/LICENSE)
