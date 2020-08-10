@@ -17,9 +17,10 @@ Will collect most of the data which is free to collect from there api.
 - Weekly weather forecast 
 - Daily weather forecast 
 
+### Support that will be added
+- MVC Version
 
 ### Support that might be added
-- MVC Version
 - Weather Trigger Support
 - Database Support
 - Blazor Web Assembly version
