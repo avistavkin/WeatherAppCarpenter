@@ -21,11 +21,8 @@ namespace WeatherApp
             {
                 try
                 {
-                    for(int i = 0;i<7;i++)
-                    Console.Write(OutPut.PrintMenuOptions(i));
-
-                    willContinue = await MainMenu(int.Parse(Console.ReadLine()));
-                    Console.Clear();
+                     willContinue = await MainMenu(); 
+                     Console.Clear();
                 }
                 catch (FormatException)
                 {
@@ -48,7 +45,7 @@ namespace WeatherApp
             }
         }
 
-        private static async Task<bool> MainMenu(int userInput)
+        private static async Task<bool> MainMenuNavigation(int userInput)
         {
             if (!userInput.Equals(ExitProgram))
             {
@@ -64,6 +61,12 @@ namespace WeatherApp
                 willContinue = false;
             }
             return willContinue;
+        }
+
+        private static async Task<bool> MainMenu()
+        {
+            OutPut.PrintMainMenu();
+            return willContinue = await Menu.MainMenuNavigation(int.Parse(Console.ReadLine()));
         }
     }
 }
