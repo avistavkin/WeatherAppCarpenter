@@ -11,10 +11,10 @@ Will collect most of the data which is free to collect from there api.
 - Kanban board [here](https://github.com/users/Carpenteri1/projects/3) 
 
 ### Supports
-- Show weather condition using city name
+- Show weather condition in a city
 - Show weather condition using lon and lat
 - Show weather condition for multiple cities
-- Four days weather forecast 
+- Weekly weather forecast 
 - Daily weather forecast 
 
 
