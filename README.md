@@ -17,6 +17,13 @@ Will collect most of the data which is free to collect from there api.
 - Four days weather forecast 
 - Daily weather forecast 
 
+
+### Support that might be added
+- MVC Version
+- Weather Trigger Support
+- Database Support
+- Blazor Web Assembly version
+
 ### Licens
 - Licens [here](https://github.com/Carpenteri1/WeatherApp/blob/master/LICENSE)
 
