@@ -4,6 +4,8 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Channels;
 
 namespace WeatherApp
 {
@@ -19,7 +21,9 @@ namespace WeatherApp
             {
                 try
                 {
-                    Console.Write(OutPut.PrintMenuOptions());
+                    for(int i = 0;i<7;i++)
+                    Console.Write(OutPut.PrintMenuOptions(i));
+
                     willContinue = await MainMenu(int.Parse(Console.ReadLine()));
                     Console.Clear();
                 }
@@ -35,7 +39,9 @@ namespace WeatherApp
                 }
                 finally
                 {
-                    Console.ReadKey();
+                    if (willContinue.Equals(true))
+                        Console.ReadKey();
+                    
                     Console.Clear();
                 }
 

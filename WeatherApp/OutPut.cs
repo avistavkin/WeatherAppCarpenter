@@ -10,18 +10,14 @@ namespace WeatherApp
 {
     public class OutPut
     {
-        public static string PrintMenuOptions()
+        public static string PrintMenuOptions(int index)
         {
-            string menuText = "Search For City Press 1:" +
-      "\nSearch by lon and lat Press 2:" +
-      "\nCollect multiple city data Press 3:" +
-      "\nFour Days Weather Forecast Press 4:" +
-      "\nDaily Weather Forecast 5:" +
-      "\nClose Program Press 6:" +
-      "\n:> ";
+            string [] menuText = {"Search For City Press 1:", "Search by lon and lat Press 2:", "Collect multiple city data Press 3:", 
+                "Four Days Weather Forecast Press 4:", "Daily Weather Forecast 5:" ,"Close Program Press 6:", ":> " };
 
             ColorAndStyle.SetTextColor(Colors.Magenta);
-            return menuText;
+            ColorAndStyle.SetTextPosition(menuText[index],35,8+index);
+            return menuText[index];
         }
 
         public static string PrintWeatherCondition(WeatherData weather)
