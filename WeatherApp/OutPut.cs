@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WeatherApp.Data;
 namespace WeatherApp
@@ -15,7 +16,7 @@ namespace WeatherApp
         private const int menuX = 36;
         private const int MenuSize = 7;
 
-        public static string PrintMenuOptions(int index,int x,int y)
+        private static string PrintMenuOptions(int index,int x,int y)
         {
             string [] menuText = {"Search For City Press 1:", "Search by lon and lat Press 2:", "Collect multiple city data Press 3:", 
                 "Four Days Weather Forecast Press 4:", "Daily Weather Forecast 5:" ,"Close Program Press 6:", ":> "};
@@ -24,26 +25,43 @@ namespace WeatherApp
             return ColorAndStyle.SetTextPosition(menuText[index], x, y + index);
         }
 
-        public static string PrintMenuFrame(string input,int x, int y)
+        public static void PrintMenuFrame()//TODO work in progress, just temporary. Want to avoid void
         {
             ColorAndStyle.SetTextColor(Colors.white);
-            return ColorAndStyle.SetTextPosition(input, x, y);
+            Console.WriteLine(ColorAndStyle.SetTextPosition("***********************************", menuX, menuY-5));
+            ColorAndStyle.SetTextColor(Colors.green);
+            Console.WriteLine(ColorAndStyle.SetTextPosition("WeatherApp", menuX+12, menuY - 4));
+            ColorAndStyle.SetTextColor(Colors.white);
+
+            for (int i = 0; i < MenuSize-5; i++)
+            {
+                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX, menuY + i-4));
+                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 34, menuY + i-4));
+            }
+
+
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*****************************************", menuX-3, menuY-2));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 37, menuY - 1));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + -3, menuY - 1));
+
+            for (int i = 0; i < MenuSize; i++)
+            {
+                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX - 3, menuY + i));
+                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 37, menuY + i));
+            }
+
+
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX - 3, menuY + MenuSize));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + + 37, menuY + MenuSize));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*****************************************", menuX - 3, menuY + MenuSize +1));
         }
 
         public static void PrintMainMenu()//TODO work in progress, just temporary. Want to avoid void
-        {        
-            Console.WriteLine(OutPut.PrintMenuFrame("*****************************************", menuX-3, menuY - 2));
-            Console.WriteLine(OutPut.PrintMenuFrame("*", menuX + 37, menuY - 1));
-            Console.WriteLine(OutPut.PrintMenuFrame("*", menuX + -3, menuY - 1));
+        {
             for (int i = 0; i < MenuSize; i++)
             {
-                Console.WriteLine(OutPut.PrintMenuFrame("*", menuX -3, menuY + i));
                 Console.Write(OutPut.PrintMenuOptions(i, menuX, menuY));
-                Console.WriteLine(OutPut.PrintMenuFrame("*", menuX + 37, menuY + i));
             }
-            Console.WriteLine(OutPut.PrintMenuFrame("*", menuX -3, menuY +MenuSize));
-            Console.WriteLine(OutPut.PrintMenuFrame("*", menuX + 37, menuY + MenuSize));
-            Console.WriteLine(OutPut.PrintMenuFrame("*****************************************", menuX-3, menuY + MenuSize + 1));
             ColorAndStyle.SetTextPosition("", menuX + 3, menuY + 6);//resets the cursour at >: in the menu
         }
 

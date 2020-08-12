@@ -6,6 +6,7 @@ using WeatherApp.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Channels;
+using System.Threading;
 
 namespace WeatherApp
 {
@@ -14,6 +15,8 @@ namespace WeatherApp
         private static bool willContinue = true;
         private static FetchData data = new FetchData();
         private const int ExitProgram = 6;
+        private const int menuX = 44;
+        private const int menuY = 10;
 
         public static async Task RunProgram()
         {
@@ -27,12 +30,16 @@ namespace WeatherApp
                 catch (FormatException)
                 {
                     Console.Clear();
-                    Console.WriteLine(ColorAndStyle.SetTextColor(Colors.red, "Input cant be empty!!"));
+                    OutPut.PrintMenuFrame();
+                    ColorAndStyle.SetTextColor(Colors.red,string.Empty);
+                    Console.WriteLine(ColorAndStyle.SetTextPosition("Input cant be empty!!",menuX,menuY));
                 }
                 catch (Exception e)
                 {
                     Console.Clear();
-                    Console.WriteLine(ColorAndStyle.SetTextColor(Colors.red, e.Message));
+                    OutPut.PrintMenuFrame();
+                    ColorAndStyle.SetTextColor(Colors.red, string.Empty);
+                    Console.WriteLine(ColorAndStyle.SetTextPosition(e.Message, menuX, menuY));
                 }
                 finally
                 {
@@ -65,8 +72,14 @@ namespace WeatherApp
 
         private static async Task<bool> MainMenu()
         {
-            OutPut.PrintMainMenu();
-            return willContinue = await Menu.MainMenuNavigation(int.Parse(Console.ReadLine()));
+            Thread threadOne = new Thread(new ThreadStart(OutPut.PrintMenuFrame));
+            Thread threadTwo = new Thread(new ThreadStart(OutPut.PrintMainMenu));
+            threadOne.Start();
+            threadOne.Join();
+
+            threadTwo.Start();
+            threadTwo.Join();
+            return willContinue = await Menu.MainMenuNavigation(int.Parse(Console.ReadLine()));// if false program will close
         }
     }
 }

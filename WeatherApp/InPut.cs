@@ -14,6 +14,8 @@ namespace WeatherApp
         private const int _SearchForMultipleCities = 3;
         private const int _FourDaysForeCast = 4;
         private const int _DailyForCast = 5;
+        private const int menuX = 44;
+        private const int menuY = 10;
 
         public static async Task<string> InPutString(int i)
         {
@@ -22,7 +24,9 @@ namespace WeatherApp
 
             if (i.Equals(_SearchForOneCity))
             {
-                input = EnterStringValue("Enter city name: ");
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
+                input = EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ",menuX,menuY));
                 apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(input, i));
             }
             else if (i.Equals(_SearchBylongLat))
@@ -59,7 +63,7 @@ namespace WeatherApp
 
             if (value.Equals(string.Empty))
             {
-                throw new Exception("Input cant be empty!");
+                throw new Exception(ColorAndStyle.SetTextPosition("Input cant be empty!", menuX, menuY));
             }
             return value;
         }
