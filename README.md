@@ -8,6 +8,7 @@ Will collect most of the data which is free to collect from there api.
 - Issues with the tag bug are not working as intended
 
 ### Supports
+# Console Version
 - Show weather condition in a city
 - Show weather condition using lon and lat
 - Show weather condition for multiple cities
