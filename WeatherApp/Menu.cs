@@ -16,28 +16,26 @@ namespace WeatherApp
         private static FetchData data = new FetchData();
         private const int ExitProgram = 6;
 
-        public static void Main()
-        {
-            Threads.StartThread(new Thread(RunProgram)).Name = "first thread";
-        }
-
-        private static void RunProgram()
+        public static async Task RunProgram()
         {
 
             while (willContinue.Equals(true))
             {
+                Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
+                Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMainMenu)));
+
                 try
                 {
-                    willContinue = MainMenu();
+                    willContinue = await MainMenuNavigation(int.Parse(Console.ReadLine()));// if false program will close
                     Console.Clear();
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine(OutPut.PrintErrorMessages("Input cant be empty!!"));
+                    Console.WriteLine(OutPut.PrintErrorMessages("Input cant be empty or in wrong format!!",-2,2));
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(OutPut.PrintErrorMessages(e.Message));
+                    Console.WriteLine(OutPut.PrintErrorMessages(e.Message,5,2));
                 }
                 finally
                 {
@@ -51,29 +49,31 @@ namespace WeatherApp
 
         }
 
-        private static bool MainMenuNavigation(int userInput)
+        private static async Task<bool> MainMenuNavigation(int userInput)
         {
             if (!userInput.Equals(ExitProgram))
             {
                 string url = string.Empty;
-                string input = string.Empty;
+                string output = string.Empty;
+
                 Console.Clear();
-                Console.WriteLine(InPut.InPutString(userInput));
-                Console.ReadKey();
-                willContinue = true;
+                output = await InPut.InPutString(userInput);
+
+                if (output.Equals(string.Empty))
+                {
+                    throw new Exception("input cant be empty!!!");
+                }
+                else
+                {
+                    Console.WriteLine(InPut.InPutString(userInput));
+                    willContinue = true;
+                }
             }
             else
             {
                 willContinue = false;
             }
             return willContinue;
-        }
-
-        private static bool MainMenu()
-        {
-            Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
-            Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMainMenu)));
-            return willContinue = Menu.MainMenuNavigation(int.Parse(Console.ReadLine()));// if false program will close
         }
     }
 }

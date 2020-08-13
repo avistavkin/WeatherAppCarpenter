@@ -25,12 +25,12 @@ namespace WeatherApp
             return ColorAndStyle.SetTextPosition(menuText[index], x, y + index);
         }
 
-        public static string PrintErrorMessages(string message)
+        public static string PrintErrorMessages(string message,int userX,int userY)
         {
             Console.Clear();
             Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
             ColorAndStyle.SetTextColor(Colors.red, string.Empty);
-            return ColorAndStyle.SetTextPosition(message, 44, 10);
+            return ColorAndStyle.SetTextPosition(message, menuX+userX, menuY+userY);
         }
 
 
@@ -50,29 +50,29 @@ namespace WeatherApp
             }
 
 
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*****************************************", menuX - 3, menuY - 2));
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 37, menuY - 1));
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + -3, menuY - 1));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("**************************************************", menuX - 8, menuY - 2));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 41, menuY - 1));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + -8, menuY - 1));
 
-            for (int i = 0; i < MenuSize; i++)
+            for (int i = 0; i < 15; i++)
             {
-                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX - 3, menuY + i));
-                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 37, menuY + i));
+                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX - 8, menuY + i));
+                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 41, menuY + i));
             }
 
 
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX - 3, menuY + MenuSize));
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + +37, menuY + MenuSize));
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*****************************************", menuX - 3, menuY + MenuSize + 1));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX - 8, menuY + MenuSize));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX +41, menuY + MenuSize));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("**************************************************", menuX - 8, menuY + 13 + 1));
         }
 
         public static void PrintMainMenu()//TODO work in progress, just temporary. Want to avoid void
         {
             for (int i = 0; i < MenuSize; i++)
             {
-                Console.Write(OutPut.PrintMenuOptions(i, menuX, menuY));
+                Console.Write(OutPut.PrintMenuOptions(i, menuX, menuY+3));
             }
-            ColorAndStyle.SetTextPosition("", menuX + 3, menuY + 6);//resets the cursour at >: in the menu
+            ColorAndStyle.SetTextPosition("", menuX + 3, menuY + MenuSize+2);//resets the cursour at >: in the menu
         }
 
         public static string PrintWeatherCondition(WeatherData weather)

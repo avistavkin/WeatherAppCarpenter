@@ -5,10 +5,10 @@ namespace WeatherApp
 {
     class Program
     {
-        static void MainProgram(string[] args)
+        public static async Task Main(string[] args)
         {
             Console.Title = "WeatherApp";
-            Menu.Main();
+            await Menu.RunProgram();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace WeatherApp.Data
 {
@@ -20,6 +21,11 @@ namespace WeatherApp.Data
             return thread;
         }
 
+        public static ParameterizedThreadStart StartThreadTask(ParameterizedThreadStart thread)
+        {
+            return thread;
+        }
+
         public static Thread StartThreadWithJoin(Thread thread)
         {
             thread.Start();
@@ -27,9 +33,9 @@ namespace WeatherApp.Data
             return thread;
         }
 
-        public static Thread ThreadWait(Thread thread,int miliseconds)
+        public static Thread ThreadWait(Thread thread,int seconds)
         {
-            Thread.Sleep(miliseconds);
+            Thread.Sleep(seconds*1000);
             return thread;
         }
     }

@@ -27,6 +27,9 @@ namespace WeatherApp
                 OutPut.PrintMenuFrame();
                 ColorAndStyle.SetTextColor(Colors.Magenta);
                 input = EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ",menuX,menuY));
+                if (input.Equals(string.Empty))
+                    return apiResponse;
+
                 apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(input, i));
             }
             else if (i.Equals(_SearchBylongLat))
@@ -45,11 +48,12 @@ namespace WeatherApp
             }
             else if (i.Equals(_FourDaysForeCast))
             {
+                input = EnterStringValue("Enter city name");
                 apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
             }
             else if (i.Equals(_DailyForCast))
             {
-                apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
+                apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(input, i));
             }
 
             return apiResponse;
@@ -60,11 +64,6 @@ namespace WeatherApp
             Console.Write(output);
             string value = string.Empty;
             value = Console.ReadLine();
-
-            if (value.Equals(string.Empty))
-            {
-                throw new Exception(ColorAndStyle.SetTextPosition("Input cant be empty!", menuX, menuY));
-            }
             return value;
         }
 
