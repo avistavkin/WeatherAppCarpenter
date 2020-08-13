@@ -25,22 +25,32 @@ namespace WeatherApp
             return ColorAndStyle.SetTextPosition(menuText[index], x, y + index);
         }
 
+        public static string PrintErrorMessages(string message)
+        {
+            Console.Clear();
+            Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
+            ColorAndStyle.SetTextColor(Colors.red, string.Empty);
+            return ColorAndStyle.SetTextPosition(message, 44, 10);
+        }
+
+
         public static void PrintMenuFrame()//TODO work in progress, just temporary. Want to avoid void
         {
+            
             ColorAndStyle.SetTextColor(Colors.white);
-            Console.WriteLine(ColorAndStyle.SetTextPosition("***********************************", menuX, menuY-5));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("***********************************", menuX, menuY - 5));
             ColorAndStyle.SetTextColor(Colors.green);
-            Console.WriteLine(ColorAndStyle.SetTextPosition("WeatherApp", menuX+12, menuY - 4));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("WeatherApp", menuX + 12, menuY - 4));
             ColorAndStyle.SetTextColor(Colors.white);
 
-            for (int i = 0; i < MenuSize-5; i++)
+            for (int i = 0; i < MenuSize - 5; i++)
             {
-                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX, menuY + i-4));
-                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 34, menuY + i-4));
+                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX, menuY + i - 4));
+                Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 34, menuY + i - 4));
             }
 
 
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*****************************************", menuX-3, menuY-2));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*****************************************", menuX - 3, menuY - 2));
             Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 37, menuY - 1));
             Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + -3, menuY - 1));
 
@@ -52,8 +62,8 @@ namespace WeatherApp
 
 
             Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX - 3, menuY + MenuSize));
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + + 37, menuY + MenuSize));
-            Console.WriteLine(ColorAndStyle.SetTextPosition("*****************************************", menuX - 3, menuY + MenuSize +1));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + +37, menuY + MenuSize));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("*****************************************", menuX - 3, menuY + MenuSize + 1));
         }
 
         public static void PrintMainMenu()//TODO work in progress, just temporary. Want to avoid void

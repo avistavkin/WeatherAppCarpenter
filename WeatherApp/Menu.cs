@@ -15,15 +15,40 @@ namespace WeatherApp
         private static bool willContinue = true;
         private static FetchData data = new FetchData();
         private const int ExitProgram = 6;
-        private const int menuX = 44;
-        private const int menuY = 10;
-        private static Thread threadOne = new Thread(new ThreadStart(RunProgram));
-        private static Thread threadTwo = new Thread(new ThreadStart(OutPut.PrintMenuFrame));
-        private static Thread threadThree = new Thread(new ThreadStart(OutPut.PrintMainMenu));
 
         public static void Main()
         {
-            threadOne.Start();
+            Threads.StartThread(new Thread(RunProgram)).Name = "first thread";
+        }
+
+        private static void RunProgram()
+        {
+
+            while (willContinue.Equals(true))
+            {
+                try
+                {
+                    willContinue = MainMenu();
+                    Console.Clear();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine(OutPut.PrintErrorMessages("Input cant be empty!!"));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(OutPut.PrintErrorMessages(e.Message));
+                }
+                finally
+                {
+                    if (willContinue.Equals(true))
+                        Console.ReadKey();
+
+                    Console.Clear();
+                }
+
+            }
+
         }
 
         private static bool MainMenuNavigation(int userInput)
@@ -44,50 +69,10 @@ namespace WeatherApp
             return willContinue;
         }
 
-
-        private static void RunProgram()
-        {
-
-            while (willContinue.Equals(true))
-            {
-                try
-                {
-                    willContinue = MainMenu();
-                    Console.Clear();
-                }
-                catch (FormatException)
-                {
-                    Console.Clear();
-                    OutPut.PrintMenuFrame();
-                    ColorAndStyle.SetTextColor(Colors.red, string.Empty);
-                    Console.WriteLine(ColorAndStyle.SetTextPosition("Input cant be empty!!", menuX, menuY));
-                }
-                catch (Exception e)
-                {
-                    Console.Clear();
-                    OutPut.PrintMenuFrame();
-                    ColorAndStyle.SetTextColor(Colors.red, string.Empty);
-                    Console.WriteLine(ColorAndStyle.SetTextPosition(e.Message, menuX, menuY));
-                }
-                finally
-                {
-                    if (willContinue.Equals(true))
-                        Console.ReadKey();
-
-                    Console.Clear();
-                }
-
-            }
-
-        }
-
         private static bool MainMenu()
         {
-            threadTwo.Start();
-            threadTwo.Join();
-            threadThree.Start();
-            threadThree.Join();
-
+            Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
+            Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMainMenu)));
             return willContinue = Menu.MainMenuNavigation(int.Parse(Console.ReadLine()));// if false program will close
         }
     }
