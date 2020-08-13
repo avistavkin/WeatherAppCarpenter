@@ -75,14 +75,14 @@ namespace WeatherApp
             ColorAndStyle.SetTextPosition("", menuX + 3, menuY + MenuSize+2);//resets the cursour at >: in the menu
         }
 
-        public static string PrintWeatherCondition(WeatherData weather)
+        public static string[] PrintWeatherCondition(WeatherData weather)
         {
-            string data = string.Empty;
+            string[] data;
             if (!weather.Equals(null))
             {
-                data = $"City: {weather.name}\nTemperature: {weather.main.temp}\nHighest temperature: {weather.main.temp_max}\nLowest temperatur: {weather.main.temp_min}" +
-                            $"\nFeels like: {weather.main.feels_like}\nHumidity: {weather.main.humidity}\nPressure: {weather.main.pressure}\nWindspeed: {weather.Wind.speed}\nDeg: {weather.Wind.deg}" +
-                             $"\nCondition: {weather.weather[0].main}\nDescription: {weather.weather[0].description}";
+                data = new string []{"City: " + weather.name, "Temperature: "+weather.main.temp, "Highest temperature: " +weather.main.temp_max,"Lowest temperatur: "+ weather.main.temp_min,
+                "Feels like: " + weather.main.feels_like,"Humidity: "+ weather.main.humidity,"Pressure: "+ weather.main.pressure,"Windspeed: "+weather.Wind.speed,"Deg: "+ weather.Wind.deg,
+                "Condition: "+ weather.weather[0].main,"Description: " +weather.weather[0].description};
             }
             else
             {

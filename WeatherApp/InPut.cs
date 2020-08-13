@@ -17,9 +17,9 @@ namespace WeatherApp
         private const int menuX = 44;
         private const int menuY = 10;
 
-        public static async Task<string> InPutString(int i)
+        public static async Task<string[]> InPutString(int i)
         {
-            string apiResponse = string.Empty;
+            string[] apiResponse = new string[]{};
             string input = string.Empty;
 
             if (i.Equals(_SearchForOneCity))
@@ -28,14 +28,16 @@ namespace WeatherApp
                 ColorAndStyle.SetTextColor(Colors.Magenta);
                 input = EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ",menuX,menuY));
                 if (input.Equals(string.Empty))
-                    return apiResponse;
+                    return null;
 
                 apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(input, i));
             }
             else if (i.Equals(_SearchBylongLat))
             {
-                int lon = int.Parse(EnterStringValue("Enter lat value: "));
-                int lat = int.Parse(EnterStringValue("Enter lon value: "));
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
+                int lon = int.Parse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter lat value: ", menuX, menuY)));
+                int lat = int.Parse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter lon value: ", menuX, menuY)));
                 Console.Clear();
                 apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(lat, lon));
             }
@@ -43,17 +45,17 @@ namespace WeatherApp
             {
                 foreach (var s in await AddCityNames(i))
                 {
-                    apiResponse += "\n" + OutPut.PrintWeatherCondition(s) + "\n--------------";
+                    //apiResponse += "\n" + OutPut.PrintWeatherCondition(s) + "\n--------------";
                 }
             }
             else if (i.Equals(_FourDaysForeCast))
             {
                 input = EnterStringValue("Enter city name");
-                apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
+                //apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
             }
             else if (i.Equals(_DailyForCast))
             {
-                apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(input, i));
+                //apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(input, i));
             }
 
             return apiResponse;

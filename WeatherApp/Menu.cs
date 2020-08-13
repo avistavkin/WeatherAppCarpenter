@@ -54,18 +54,25 @@ namespace WeatherApp
             if (!userInput.Equals(ExitProgram))
             {
                 string url = string.Empty;
-                string output = string.Empty;
+                string [] output;
 
                 Console.Clear();
                 output = await InPut.InPutString(userInput);
 
-                if (output.Equals(string.Empty))
+                if (output.Equals(null))
                 {
                     throw new Exception("input cant be empty!!!");
                 }
                 else
                 {
-                    Console.WriteLine(InPut.InPutString(userInput));
+                    Console.Clear();
+                    Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
+                    ColorAndStyle.SetTextColor(Colors.Magenta);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Console.WriteLine(ColorAndStyle.SetTextPosition(output[i], 43, 9 + i));
+                    }
+                    Console.ReadKey();
                     willContinue = true;
                 }
             }
