@@ -54,7 +54,7 @@ namespace WeatherApp
             if (!userInput.Equals(ExitProgram))
             {
                 string url = string.Empty;
-                string [] output;
+                List<string>output;
 
                 Console.Clear();
                 output = await InPut.InPutString(userInput);
@@ -68,9 +68,9 @@ namespace WeatherApp
                     Console.Clear();
                     Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
                     ColorAndStyle.SetTextColor(Colors.Magenta);
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < output.Count(); i++)
                     {
-                        Console.WriteLine(ColorAndStyle.SetTextPosition(output[i], 43, 9 + i));
+                        Console.WriteLine(ColorAndStyle.SetTextPosition(output[i], 42, 9 + i));
                     }
                     Console.ReadKey();
                     willContinue = true;

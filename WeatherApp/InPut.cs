@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WeatherApp.Data;
 
@@ -16,10 +17,10 @@ namespace WeatherApp
         private const int _DailyForCast = 5;
         private const int menuX = 44;
         private const int menuY = 10;
+        private static List<string>  apiResponse = new List<string>();
 
-        public static async Task<string[]> InPutString(int i)
+        public static async Task<List<string>> InPutString(int i)
         {
-            string[] apiResponse = new string[]{};
             string input = string.Empty;
 
             if (i.Equals(_SearchForOneCity))
@@ -30,7 +31,7 @@ namespace WeatherApp
                 if (input.Equals(string.Empty))
                     return null;
 
-                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(input, i));
+                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(input, i)).ToList();
             }
             else if (i.Equals(_SearchBylongLat))
             {
@@ -39,23 +40,28 @@ namespace WeatherApp
                 int lon = int.Parse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter lat value: ", menuX, menuY)));
                 int lat = int.Parse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter lon value: ", menuX, menuY)));
                 Console.Clear();
-                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(lat, lon));
+                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(lat, lon)).ToList();
             }
             else if (i.Equals(_SearchForMultipleCities))
             {
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
                 foreach (var s in await AddCityNames(i))
                 {
-                    //apiResponse += "\n" + OutPut.PrintWeatherCondition(s) + "\n--------------";
+                     apiResponse = OutPut.PrintWeatherCondition(s).ToList();
                 }
             }
             else if (i.Equals(_FourDaysForeCast))
             {
-                input = EnterStringValue("Enter city name");
-                //apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
+                apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ", menuX, menuY)), i));
             }
             else if (i.Equals(_DailyForCast))
             {
-                //apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(input, i));
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
+                apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ", menuX, menuY)), i)).ToList();
             }
 
             return apiResponse;
@@ -72,7 +78,6 @@ namespace WeatherApp
         private static async Task<List<WeatherData>> AddCityNames(int value)
         {
             List<WeatherData> listOfWeatherData = new List<WeatherData>();
-            Console.Clear();
             bool continueLoop = true;
             string input = string.Empty;
 
@@ -82,13 +87,21 @@ namespace WeatherApp
                 if (listOfWeatherData.Count < 1)
                 {
                     ColorAndStyle.SetTextColor(Colors.red);
-                    Console.Write(ColorAndStyle.SetTextColor(Colors.red, "Type nothing and press enter to exit and continue"));
-                    Console.WriteLine(ColorAndStyle.SetTextColor(Colors.white, "\nEnter city name: "));
+                    Console.Write(ColorAndStyle.SetTextPosition("Press enter to exit or enter city", menuX-8, menuY));
+                    ColorAndStyle.SetTextColor(Colors.Magenta);
+                    Console.WriteLine(ColorAndStyle.SetTextPosition("Enter city  name:",menuX-8,menuY+1));
+                    ColorAndStyle.SetTextPosition(string.Empty,menuX+10,menuY+1);
                     input = Console.ReadLine();
                 }
                 else
                 {
-                    Console.Write("Enter another city name: ");
+                    Console.Clear();
+                    OutPut.PrintMenuFrame();
+                    ColorAndStyle.SetTextColor(Colors.red);
+                    Console.Write(ColorAndStyle.SetTextPosition("Press enter to exit or enter city", menuX-8, menuY));
+                    ColorAndStyle.SetTextColor(Colors.Magenta);
+                    Console.WriteLine(ColorAndStyle.SetTextPosition("Enter another city: ", menuX-8, menuY + 1));
+                    ColorAndStyle.SetTextPosition(string.Empty, menuX + 11, menuY + 1);
                     input = Console.ReadLine();
                 }
                 #endregion

@@ -77,7 +77,7 @@ namespace WeatherApp
 
         public static string[] PrintWeatherCondition(WeatherData weather)
         {
-            string[] data;
+            string [] data;
             if (!weather.Equals(null))
             {
                 data = new string []{"City: " + weather.name, "Temperature: "+weather.main.temp, "Highest temperature: " +weather.main.temp_max,"Lowest temperatur: "+ weather.main.temp_min,
@@ -91,31 +91,54 @@ namespace WeatherApp
 
             return data;
         }
-        public static string PrintFourDaysForecast(WeatherData weather)
+        public static List<string> PrintFourDaysForecast(WeatherData weather)
         {
-            string data = string.Empty;
-            data = $"4 days weather forecast {weather.city.name}, Coords: {weather.city.coord.lon},{weather.city.coord.lat}" + "\n";
+            List<string> data = new List<string>();
+            data.Add("4 days weather forecast " + weather.city.name);
+            data.Add("Coords: " + weather.city.coord.lon.ToString());
+            data.Add(weather.city.coord.lat.ToString());
+
             foreach (var s in weather.list)
             {
-                data += $"\n------\nDate: {s.dt_txt}\nTemperatur: {s.main.temp}\nHighest temperature: {s.main.temp_max}\nLowest temperatur: {s.main.temp_min}\nFeels like: {s.main.feels_like}\nHumidity: {s.main.humidity}\nPressure: {s.main.pressure}" +
-                    $"\nWindspeed: {s.wind.speed}\nDeg: {s.wind.deg}\nCondition: {s.weather[0].main}\nDescription: {s.weather[0].description}";
+                data.Add("Date: " + s.dt_txt);
+                data.Add("Temperatur: " + s.main.temp);
+                data.Add("Highest temperature: " + s.main.temp_max);
+                data.Add("Lowest temperature: " + s.main.temp_min);
+                data.Add("Feels like: " + s.main.feels_like);
+                data.Add("Humidity: " + s.main.humidity);
+                data.Add("Pressure: " + s.main.pressure);
+                data.Add("Windspeed: " + s.wind.speed);
+                data.Add("Condition: " + s.weather[0].main);
+                data.Add("" + s.weather[0].description);
             }
+
             return data;
         }
 
-        public static string PrintDailyForecast(WeatherData weather)
+        public static List<string> PrintDailyForecast(WeatherData weather)
         {
-            string data = string.Empty;
             string dateNow = DateTime.Now.ToString("yyyy/MM/dd").Replace("/", "-");
-            data = $"Daily weather forecast {weather.city.name}, Coords: {weather.city.coord.lon},{weather.city.coord.lat}";
+            List<string> data = new List<string>();
+            data.Add("Daily weather forecast " + weather.city.name);
+            data.Add("Coords: " + weather.city.coord.lon.ToString());
+            data.Add(weather.city.coord.lat.ToString());
+
             foreach (var s in weather.list)
             {
                 string Apidate = s.dt_txt.Remove(10).ToString();//removes time from the string
 
                 if (Apidate.Equals(dateNow))
                 {
-                    data += $"\n------\nDate: {s.dt_txt}\nTemperatur: {s.main.temp}\nHighest temperature: {s.main.temp_max}\nLowest temperatur: {s.main.temp_min}\nFeels like: {s.main.feels_like}\nHumidity: {s.main.humidity}\nPressure: {s.main.pressure}" +
-                      $"\nWindspeed: {s.wind.speed}\nDeg: {s.wind.deg}\nCondition: {s.weather[0].main}\nDescription: {s.weather[0].description}";
+                    data.Add("Date: " + s.dt_txt);
+                    data.Add("Temperatur: " + s.main.temp);
+                    data.Add("Highest temperature: " + s.main.temp_max);
+                    data.Add("Lowest temperature: " + s.main.temp_min);
+                    data.Add("Feels like: " + s.main.feels_like);
+                    data.Add("Humidity: " + s.main.humidity);
+                    data.Add("Pressure: " + s.main.pressure);
+                    data.Add("Windspeed: " + s.wind.speed);
+                    data.Add("Condition: " + s.weather[0].main);
+                    data.Add("" + s.weather[0].description);
                 }
             }
             return data;
