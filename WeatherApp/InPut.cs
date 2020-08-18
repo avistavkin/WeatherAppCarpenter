@@ -91,20 +91,20 @@ namespace WeatherApp
                 if (listOfWeatherData.Count < 1)
                 {
                     ColorAndStyle.SetTextColor(Colors.red);
-                    Console.Write(ColorAndStyle.SetTextPosition("Press enter to exit or enter city", menuX-8, menuY));
+                    Console.Write(ColorAndStyle.SetTextPosition("Press enter to exit or enter city", menuX-7, menuY));
                     ColorAndStyle.SetTextColor(Colors.Magenta);
-                    Console.WriteLine(ColorAndStyle.SetTextPosition("Enter city  name:",menuX-8,menuY+1));
+                    Console.WriteLine(ColorAndStyle.SetTextPosition("Enter city  name:",menuX-7,menuY+1));
                     ColorAndStyle.SetTextPosition(string.Empty,menuX+10,menuY+1);
                     input = Console.ReadLine();
                 }
                 else
                 {
-                    Console.Clear();
                     OutPut.PrintMenuFrame();
+                    Console.Clear();
                     ColorAndStyle.SetTextColor(Colors.red);
-                    Console.Write(ColorAndStyle.SetTextPosition("Press enter to exit or enter city", menuX-8, menuY));
+                    Console.Write(ColorAndStyle.SetTextPosition("Press enter to exit or enter city", menuX-7, menuY));
                     ColorAndStyle.SetTextColor(Colors.Magenta);
-                    Console.WriteLine(ColorAndStyle.SetTextPosition("Enter another city: ", menuX-8, menuY + 1));
+                    Console.WriteLine(ColorAndStyle.SetTextPosition("Enter another city: ", menuX-7, menuY + 1));
                     ColorAndStyle.SetTextPosition(string.Empty, menuX + 11, menuY + 1);
                     input = Console.ReadLine();
                 }
