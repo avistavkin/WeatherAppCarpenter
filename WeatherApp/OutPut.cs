@@ -15,6 +15,7 @@ namespace WeatherApp
         private const int menuY = 8;
         private const int menuX = 36;
         private const int MenuSize = 7;
+        private static string menuTitle = string.Empty;
 
         private static string PrintMenuOptions(int index,int x,int y)
         {
@@ -27,8 +28,8 @@ namespace WeatherApp
 
         public static string PrintErrorMessages(string message,int userX,int userY)
         {
-            Console.Clear();
-            Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
+            menuTitle = "WeatherApp";
+            Threads.StartThreadWithJoin(new Thread(new ThreadStart(PrintMenuFrame)));
             ColorAndStyle.SetTextColor(Colors.red, string.Empty);
             return ColorAndStyle.SetTextPosition(message, menuX+userX, menuY+userY);
         }
@@ -40,7 +41,7 @@ namespace WeatherApp
             ColorAndStyle.SetTextColor(Colors.white);
             Console.WriteLine(ColorAndStyle.SetTextPosition("***********************************", menuX, menuY - 5));
             ColorAndStyle.SetTextColor(Colors.green);
-            Console.WriteLine(ColorAndStyle.SetTextPosition("WeatherApp", menuX + 12, menuY - 4));
+            Console.WriteLine(ColorAndStyle.SetTextPosition(menuTitle, menuX + 12, menuY - 4));
             ColorAndStyle.SetTextColor(Colors.white);
 
             for (int i = 0; i < MenuSize - 5; i++)
@@ -70,7 +71,7 @@ namespace WeatherApp
         {
             for (int i = 0; i < MenuSize; i++)
             {
-                Console.Write(OutPut.PrintMenuOptions(i, menuX, menuY+3));
+                Console.Write(PrintMenuOptions(i, menuX, menuY+3));
             }
             ColorAndStyle.SetTextPosition("", menuX + 3, menuY + MenuSize+2);//resets the cursour at >: in the menu
         }
@@ -119,10 +120,8 @@ namespace WeatherApp
         {
             string dateNow = DateTime.Now.ToString("yyyy/MM/dd").Replace("/", "-");
             List<string> data = new List<string>();
-            data.Add("Daily weather forecast " + weather.city.name);
-            data.Add("Coords: " + weather.city.coord.lon.ToString());
-            data.Add(weather.city.coord.lat.ToString());
 
+            menuTitle = "Daily weather forecast " + weather.city.name;
             foreach (var s in weather.list)
             {
                 string Apidate = s.dt_txt.Remove(10).ToString();//removes time from the string
