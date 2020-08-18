@@ -21,8 +21,10 @@ namespace WeatherApp
 
             while (willContinue.Equals(true))
             {
+                Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintTitleFrame)));
                 Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
                 Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMainMenu)));
+           
 
                 try
                 {
@@ -31,6 +33,7 @@ namespace WeatherApp
                 }
                 catch (FormatException)
                 {
+                   
                     Console.WriteLine(OutPut.PrintErrorMessages("Input cant be empty or in wrong format!!",-2,2));
                 }
                 catch (Exception e)
@@ -66,11 +69,12 @@ namespace WeatherApp
                 else
                 {
                     Console.Clear();
-                    Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
+                    int count = 0;
                     ColorAndStyle.SetTextColor(Colors.Magenta);
                     for (int i = 0; i < output.Count(); i++)
                     {
                         Console.WriteLine(ColorAndStyle.SetTextPosition(output[i], 42, 9 + i));
+                        Console.Write(ColorAndStyle.SetTextPosition("*",74,9+i));
                     }
                     Console.ReadKey();
                     willContinue = true;

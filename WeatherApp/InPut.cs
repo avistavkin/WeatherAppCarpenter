@@ -25,6 +25,7 @@ namespace WeatherApp
 
             if (i.Equals(_SearchForOneCity))
             {
+                OutPut.PrintTitleFrame();
                 OutPut.PrintMenuFrame();
                 ColorAndStyle.SetTextColor(Colors.Magenta);
                 input = EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ",menuX,menuY));
@@ -35,6 +36,7 @@ namespace WeatherApp
             }
             else if (i.Equals(_SearchBylongLat))
             {
+                OutPut.PrintTitleFrame();
                 OutPut.PrintMenuFrame();
                 ColorAndStyle.SetTextColor(Colors.Magenta);
                 int lon = int.Parse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter lat value: ", menuX, menuY)));
@@ -44,6 +46,7 @@ namespace WeatherApp
             }
             else if (i.Equals(_SearchForMultipleCities))
             {
+                OutPut.PrintTitleFrame();
                 OutPut.PrintMenuFrame();
                 ColorAndStyle.SetTextColor(Colors.Magenta);
                 foreach (var s in await AddCityNames(i))
@@ -53,6 +56,7 @@ namespace WeatherApp
             }
             else if (i.Equals(_FourDaysForeCast))
             {
+                OutPut.PrintTitleFrame();
                 OutPut.PrintMenuFrame();
                 ColorAndStyle.SetTextColor(Colors.Magenta);
                 apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ", menuX, menuY)), i));

@@ -15,33 +15,31 @@ namespace WeatherApp
         private const int menuY = 8;
         private const int menuX = 36;
         private const int MenuSize = 7;
-        private static string menuTitle = string.Empty;
 
         private static string PrintMenuOptions(int index,int x,int y)
         {
             string [] menuText = {"Search For City Press 1:", "Search by lon and lat Press 2:", "Collect multiple city data Press 3:", 
                 "Four Days Weather Forecast Press 4:", "Daily Weather Forecast 5:" ,"Close Program Press 6:", ":> "};
-            
             ColorAndStyle.SetTextColor(Colors.Magenta);
             return ColorAndStyle.SetTextPosition(menuText[index], x, y + index);
         }
 
         public static string PrintErrorMessages(string message,int userX,int userY)
         {
-            menuTitle = "WeatherApp";
-            Threads.StartThreadWithJoin(new Thread(new ThreadStart(PrintMenuFrame)));
+            Console.Clear();
+            Threads.StartThreadWithJoin(new Thread(new ThreadStart(PrintTitleFrame)));
+            Threads.StartThread(new Thread(new ThreadStart(PrintMenuFrame)));
+
             ColorAndStyle.SetTextColor(Colors.red, string.Empty);
             return ColorAndStyle.SetTextPosition(message, menuX+userX, menuY+userY);
         }
 
-
-        public static void PrintMenuFrame()//TODO work in progress, just temporary. Want to avoid void
+        public static void PrintTitleFrame()
         {
-            
             ColorAndStyle.SetTextColor(Colors.white);
             Console.WriteLine(ColorAndStyle.SetTextPosition("***********************************", menuX, menuY - 5));
             ColorAndStyle.SetTextColor(Colors.green);
-            Console.WriteLine(ColorAndStyle.SetTextPosition(menuTitle, menuX + 12, menuY - 4));
+            Console.WriteLine(ColorAndStyle.SetTextPosition("WeatherApp", menuX + 12, menuY - 4));
             ColorAndStyle.SetTextColor(Colors.white);
 
             for (int i = 0; i < MenuSize - 5; i++)
@@ -50,7 +48,11 @@ namespace WeatherApp
                 Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 34, menuY + i - 4));
             }
 
+        }
 
+        public static void PrintMenuFrame()//TODO work in progress, just temporary. Want to avoid void
+        {
+            ColorAndStyle.SetTextColor(Colors.white);
             Console.WriteLine(ColorAndStyle.SetTextPosition("**************************************************", menuX - 8, menuY - 2));
             Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 41, menuY - 1));
             Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + -8, menuY - 1));
@@ -95,24 +97,25 @@ namespace WeatherApp
         public static List<string> PrintFourDaysForecast(WeatherData weather)
         {
             List<string> data = new List<string>();
-            data.Add("4 days weather forecast " + weather.city.name);
-            data.Add("Coords: " + weather.city.coord.lon.ToString());
-            data.Add(weather.city.coord.lat.ToString());
+            data.Add("********************************");
+            data.Add("* "+weather.city.name+" fourdays forecast");
+            data.Add("* Lon: " + weather.city.coord.lon.ToString() + " Lat: " + weather.city.coord.lat.ToString());
 
             foreach (var s in weather.list)
             {
-                data.Add("Date: " + s.dt_txt);
-                data.Add("Temperatur: " + s.main.temp);
-                data.Add("Highest temperature: " + s.main.temp_max);
-                data.Add("Lowest temperature: " + s.main.temp_min);
-                data.Add("Feels like: " + s.main.feels_like);
-                data.Add("Humidity: " + s.main.humidity);
-                data.Add("Pressure: " + s.main.pressure);
-                data.Add("Windspeed: " + s.wind.speed);
-                data.Add("Condition: " + s.weather[0].main);
-                data.Add("" + s.weather[0].description);
+                data.Add("********************************");
+                data.Add("* Date: " + s.dt_txt);
+                data.Add("* Temperatur: " + s.main.temp);
+                data.Add("* Highest temperature: " + s.main.temp_max);
+                data.Add("* Lowest temperature: " + s.main.temp_min);
+                data.Add("* Feels like: " + s.main.feels_like);
+                data.Add("* Humidity: " + s.main.humidity);
+                data.Add("* Pressure: " + s.main.pressure);
+                data.Add("* Windspeed: " + s.wind.speed);
+                data.Add("* Condition: " + s.weather[0].main);
+                data.Add("* Description: " + s.weather[0].description);
             }
-
+            data.Add("********************************");
             return data;
         }
 
@@ -120,26 +123,28 @@ namespace WeatherApp
         {
             string dateNow = DateTime.Now.ToString("yyyy/MM/dd").Replace("/", "-");
             List<string> data = new List<string>();
-
-            menuTitle = "Daily weather forecast " + weather.city.name;
+            data.Add("********************************");
+            data.Add("* City: "+weather.city.name);
+            data.Add("* Lon: " + weather.city.coord.lon.ToString() + " Lat: " + weather.city.coord.lat.ToString());
             foreach (var s in weather.list)
             {
                 string Apidate = s.dt_txt.Remove(10).ToString();//removes time from the string
 
                 if (Apidate.Equals(dateNow))
                 {
-                    data.Add("Date: " + s.dt_txt);
-                    data.Add("Temperatur: " + s.main.temp);
-                    data.Add("Highest temperature: " + s.main.temp_max);
-                    data.Add("Lowest temperature: " + s.main.temp_min);
-                    data.Add("Feels like: " + s.main.feels_like);
-                    data.Add("Humidity: " + s.main.humidity);
-                    data.Add("Pressure: " + s.main.pressure);
-                    data.Add("Windspeed: " + s.wind.speed);
-                    data.Add("Condition: " + s.weather[0].main);
-                    data.Add("" + s.weather[0].description);
-                }
+                    data.Add("********************************");
+                    data.Add("* Date: " + s.dt_txt);
+                    data.Add("* Temperatur: " + s.main.temp);
+                    data.Add("* Highest temperature: " + s.main.temp_max);
+                    data.Add("* Lowest temperature: " + s.main.temp_min);
+                    data.Add("* Feels like: " + s.main.feels_like);
+                    data.Add("* Humidity: " + s.main.humidity);
+                    data.Add("* Pressure: " + s.main.pressure);
+                    data.Add("* Windspeed: " + s.wind.speed);
+                    data.Add("* Condition: " + s.weather[0].main);
+                    data.Add("* Descripton: " + s.weather[0].description);             }
             }
+            data.Add("********************************");
             return data;
         }
     }
