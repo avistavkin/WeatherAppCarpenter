@@ -22,9 +22,6 @@ Will collect most of the data which is free to collect from there api.
 ## MVC Version Supports
 - Nan
 
-## Support that will be added
-- MVC Version
-
 ## Support that might be added
 - Weather Trigger Support
 - Database Support
