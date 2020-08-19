@@ -96,13 +96,16 @@ namespace WeatherApp
         }
         public static List<string> PrintFourDaysForecast(WeatherData weather)
         {
+            int count = 0;
             List<string> data = new List<string>();
             data.Add("********************************");
             data.Add("* "+weather.city.name+" fourdays forecast");
             data.Add("* Lon: " + weather.city.coord.lon.ToString() + " Lat: " + weather.city.coord.lat.ToString());
 
+
             foreach (var s in weather.list)
             {
+                count++;
                 data.Add("********************************");
                 data.Add("* Date: " + s.dt_txt);
                 data.Add("* Temperatur: " + s.main.temp);
@@ -115,12 +118,19 @@ namespace WeatherApp
                 data.Add("* Condition: " + s.weather[0].main);
                 data.Add("* Description: " + s.weather[0].description);
             }
+            if (count.Equals(0))
+            {
+                data.Add("********************************");
+                data.Add("* No data found!");
+                data.Add("* Try Later or another city! ");
+            }
             data.Add("********************************");
             return data;
         }
 
         public static List<string> PrintDailyForecast(WeatherData weather)
         {
+            int count = 0;
             string dateNow = DateTime.Now.ToString("yyyy/MM/dd").Replace("/", "-");
             List<string> data = new List<string>();
             data.Add("********************************");
@@ -132,6 +142,7 @@ namespace WeatherApp
 
                 if (Apidate.Equals(dateNow))
                 {
+                    count++;
                     data.Add("********************************");
                     data.Add("* Date: " + s.dt_txt);
                     data.Add("* Temperatur: " + s.main.temp);
@@ -142,7 +153,14 @@ namespace WeatherApp
                     data.Add("* Pressure: " + s.main.pressure);
                     data.Add("* Windspeed: " + s.wind.speed);
                     data.Add("* Condition: " + s.weather[0].main);
-                    data.Add("* Descripton: " + s.weather[0].description);             }
+                    data.Add("* Descripton: " + s.weather[0].description);             
+                }
+            }
+            if (count.Equals(0))
+            {
+                data.Add("********************************");
+                data.Add("* No data found!");
+                data.Add("* Try Later or another city! ");
             }
             data.Add("********************************");
             return data;

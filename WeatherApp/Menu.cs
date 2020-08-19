@@ -24,12 +24,9 @@ namespace WeatherApp
                 Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintTitleFrame)));
                 Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
                 Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMainMenu)));
-           
-
                 try
                 {
                     willContinue = await MainMenuNavigation(int.Parse(Console.ReadLine()));// if false program will close
-                    Console.Clear();
                 }
                 catch (FormatException)
                 {
@@ -76,7 +73,6 @@ namespace WeatherApp
                         Console.WriteLine(ColorAndStyle.SetTextPosition(output[i], 42, 9 + i));
                         Console.Write(ColorAndStyle.SetTextPosition("*",74,9+i));
                     }
-                    Console.ReadKey();
                     willContinue = true;
                 }
             }
