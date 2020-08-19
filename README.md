@@ -12,22 +12,20 @@ Will collect most of the data which is free to collect from there api.
 - Console version Kanban board [here](https://github.com/users/Carpenteri1/projects/3) 
 - MVC Version Kanban board [here](https://github.com/Carpenteri1/WeatherApp/projects/4). More cards will be added
 
-# Future Support plans
-
-### Console Version Supports
+## Console Version Supports
 - Show weather condition in a city
 - Show weather condition using lon and lat
 - Show weather condition for multiple cities
 - Weekly weather forecast 
 - Daily weather forecast 
 
-### MVC Version Supports
+## MVC Version Supports
 - Nan
 
-### Support that will be added
+## Support that will be added
 - MVC Version
 
-### Support that might be added
+## Support that might be added
 - Weather Trigger Support
 - Database Support
 - Blazor Web Assembly version

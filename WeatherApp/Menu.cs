@@ -21,16 +21,16 @@ namespace WeatherApp
 
             while (willContinue.Equals(true))
             {
+                Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintTitleFrame)));
                 Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
                 Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMainMenu)));
-
                 try
                 {
                     willContinue = await MainMenuNavigation(int.Parse(Console.ReadLine()));// if false program will close
-                    Console.Clear();
                 }
                 catch (FormatException)
                 {
+                   
                     Console.WriteLine(OutPut.PrintErrorMessages("Input cant be empty or in wrong format!!",-2,2));
                 }
                 catch (Exception e)
@@ -54,18 +54,25 @@ namespace WeatherApp
             if (!userInput.Equals(ExitProgram))
             {
                 string url = string.Empty;
-                string output = string.Empty;
+                List<string>output;
 
                 Console.Clear();
                 output = await InPut.InPutString(userInput);
 
-                if (output.Equals(string.Empty))
+                if (output.Equals(null))
                 {
                     throw new Exception("input cant be empty!!!");
                 }
                 else
                 {
-                    Console.WriteLine(InPut.InPutString(userInput));
+                    Console.Clear();
+                    int count = 0;
+                    ColorAndStyle.SetTextColor(Colors.Magenta);
+                    for (int i = 0; i < output.Count(); i++)
+                    {
+                        Console.WriteLine(ColorAndStyle.SetTextPosition(output[i], 42, 9 + i));
+                        Console.Write(ColorAndStyle.SetTextPosition("*",74,9+i));
+                    }
                     willContinue = true;
                 }
             }

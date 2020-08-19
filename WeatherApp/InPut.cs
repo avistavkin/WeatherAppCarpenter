@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WeatherApp.Data;
 
@@ -17,43 +19,58 @@ namespace WeatherApp
         private const int menuX = 44;
         private const int menuY = 10;
 
-        public static async Task<string> InPutString(int i)
+        public static async Task<List<string>> InPutString(int i)
         {
-            string apiResponse = string.Empty;
             string input = string.Empty;
+            List<string> apiResponse = new List<string>();
 
             if (i.Equals(_SearchForOneCity))
             {
+                OutPut.PrintTitleFrame();
                 OutPut.PrintMenuFrame();
                 ColorAndStyle.SetTextColor(Colors.Magenta);
                 input = EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ",menuX,menuY));
                 if (input.Equals(string.Empty))
-                    return apiResponse;
+                    return null;
 
-                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(input, i));
+                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(input, i)).ToList();
             }
             else if (i.Equals(_SearchBylongLat))
             {
-                int lon = int.Parse(EnterStringValue("Enter lat value: "));
-                int lat = int.Parse(EnterStringValue("Enter lon value: "));
+                OutPut.PrintTitleFrame();
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
+                int lon = int.Parse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter lat value: ", menuX, menuY)));
+                int lat = int.Parse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter lon value: ", menuX, menuY)));
                 Console.Clear();
-                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(lat, lon));
+                apiResponse = OutPut.PrintWeatherCondition(await data.GetAPIResponse(lat, lon)).ToList();
             }
             else if (i.Equals(_SearchForMultipleCities))
             {
+                OutPut.PrintTitleFrame();
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
+                List<string> apiData = new List<string>();
                 foreach (var s in await AddCityNames(i))
                 {
-                    apiResponse += "\n" + OutPut.PrintWeatherCondition(s) + "\n--------------";
+                    apiData = OutPut.PrintWeatherCondition(s).ToList();
+                    if (!apiData.Contains("404"))
+                        apiResponse.AddRange(apiData);
                 }
             }
             else if (i.Equals(_FourDaysForeCast))
             {
-                input = EnterStringValue("Enter city name");
-                apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue("Enter city name: "), i));
+                OutPut.PrintTitleFrame();
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
+                apiResponse = OutPut.PrintFourDaysForecast(await data.GetAPIResponse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ", menuX, menuY)), i));
             }
             else if (i.Equals(_DailyForCast))
             {
-                apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(input, i));
+                OutPut.PrintTitleFrame();
+                OutPut.PrintMenuFrame();
+                ColorAndStyle.SetTextColor(Colors.Magenta);
+                apiResponse = OutPut.PrintDailyForecast(await data.GetAPIResponse(EnterStringValue(ColorAndStyle.SetTextPosition("Enter city name: ", menuX, menuY)), i)).ToList();
             }
 
             return apiResponse;
@@ -70,7 +87,6 @@ namespace WeatherApp
         private static async Task<List<WeatherData>> AddCityNames(int value)
         {
             List<WeatherData> listOfWeatherData = new List<WeatherData>();
-            Console.Clear();
             bool continueLoop = true;
             string input = string.Empty;
 
@@ -80,13 +96,22 @@ namespace WeatherApp
                 if (listOfWeatherData.Count < 1)
                 {
                     ColorAndStyle.SetTextColor(Colors.red);
-                    Console.Write(ColorAndStyle.SetTextColor(Colors.red, "Type nothing and press enter to exit and continue"));
-                    Console.WriteLine(ColorAndStyle.SetTextColor(Colors.white, "\nEnter city name: "));
+                    Console.Write(ColorAndStyle.SetTextPosition("Press enter to exit or enter city", menuX-7, menuY));
+                    ColorAndStyle.SetTextColor(Colors.Magenta);
+                    Console.WriteLine(ColorAndStyle.SetTextPosition("Enter city  name:",menuX-7,menuY+1));
+                    ColorAndStyle.SetTextPosition(string.Empty, menuX + 11, menuY + 1);
                     input = Console.ReadLine();
                 }
                 else
                 {
-                    Console.Write("Enter another city name: ");
+                    Console.Clear();
+                    Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintTitleFrame)));
+                    Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
+                    ColorAndStyle.SetTextColor(Colors.red);
+                    Console.Write(ColorAndStyle.SetTextPosition("Press enter to exit or enter city", menuX-7, menuY));
+                    ColorAndStyle.SetTextColor(Colors.Magenta);
+                    Console.WriteLine(ColorAndStyle.SetTextPosition("Enter another city: ", menuX-7, menuY + 1));
+                    ColorAndStyle.SetTextPosition(string.Empty, menuX + 13, menuY + 1);
                     input = Console.ReadLine();
                 }
                 #endregion
@@ -103,8 +128,6 @@ namespace WeatherApp
                 }
                 else
                 {
-                    Console.Clear();
-                    Console.WriteLine("----------------------------");
                     continueLoop = false;
                 }
                 #endregion

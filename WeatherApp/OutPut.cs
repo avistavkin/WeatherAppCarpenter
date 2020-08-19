@@ -20,7 +20,6 @@ namespace WeatherApp
         {
             string [] menuText = {"Search For City Press 1:", "Search by lon and lat Press 2:", "Collect multiple city data Press 3:", 
                 "Four Days Weather Forecast Press 4:", "Daily Weather Forecast 5:" ,"Close Program Press 6:", ":> "};
-            
             ColorAndStyle.SetTextColor(Colors.Magenta);
             return ColorAndStyle.SetTextPosition(menuText[index], x, y + index);
         }
@@ -28,15 +27,15 @@ namespace WeatherApp
         public static string PrintErrorMessages(string message,int userX,int userY)
         {
             Console.Clear();
-            Threads.StartThreadWithJoin(new Thread(new ThreadStart(OutPut.PrintMenuFrame)));
+            Threads.StartThreadWithJoin(new Thread(new ThreadStart(PrintTitleFrame)));
+            Threads.StartThread(new Thread(new ThreadStart(PrintMenuFrame)));
+
             ColorAndStyle.SetTextColor(Colors.red, string.Empty);
             return ColorAndStyle.SetTextPosition(message, menuX+userX, menuY+userY);
         }
 
-
-        public static void PrintMenuFrame()//TODO work in progress, just temporary. Want to avoid void
+        public static void PrintTitleFrame()
         {
-            
             ColorAndStyle.SetTextColor(Colors.white);
             Console.WriteLine(ColorAndStyle.SetTextPosition("***********************************", menuX, menuY - 5));
             ColorAndStyle.SetTextColor(Colors.green);
@@ -49,7 +48,11 @@ namespace WeatherApp
                 Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 34, menuY + i - 4));
             }
 
+        }
 
+        public static void PrintMenuFrame()//TODO work in progress, just temporary. Want to avoid void
+        {
+            ColorAndStyle.SetTextColor(Colors.white);
             Console.WriteLine(ColorAndStyle.SetTextPosition("**************************************************", menuX - 8, menuY - 2));
             Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + 41, menuY - 1));
             Console.WriteLine(ColorAndStyle.SetTextPosition("*", menuX + -8, menuY - 1));
@@ -70,19 +73,19 @@ namespace WeatherApp
         {
             for (int i = 0; i < MenuSize; i++)
             {
-                Console.Write(OutPut.PrintMenuOptions(i, menuX, menuY+3));
+                Console.Write(PrintMenuOptions(i, menuX, menuY+3));
             }
             ColorAndStyle.SetTextPosition("", menuX + 3, menuY + MenuSize+2);//resets the cursour at >: in the menu
         }
 
-        public static string PrintWeatherCondition(WeatherData weather)
+        public static string[] PrintWeatherCondition(WeatherData weather)
         {
-            string data = string.Empty;
+            string [] data;
             if (!weather.Equals(null))
             {
-                data = $"City: {weather.name}\nTemperature: {weather.main.temp}\nHighest temperature: {weather.main.temp_max}\nLowest temperatur: {weather.main.temp_min}" +
-                            $"\nFeels like: {weather.main.feels_like}\nHumidity: {weather.main.humidity}\nPressure: {weather.main.pressure}\nWindspeed: {weather.Wind.speed}\nDeg: {weather.Wind.deg}" +
-                             $"\nCondition: {weather.weather[0].main}\nDescription: {weather.weather[0].description}";
+                data = new string []{"********************************","* City: " + weather.name, "* Temperature: "+weather.main.temp, "* Highest temperature: " +weather.main.temp_max,"* Lowest temperatur: "+ weather.main.temp_min,
+                "* Feels like: " + weather.main.feels_like,"* Humidity: "+ weather.main.humidity,"* Pressure: "+ weather.main.pressure,"* Windspeed: "+weather.Wind.speed,"* Deg: "+ weather.Wind.deg,
+                "* Condition: "+ weather.weather[0].main,"* Description: " +weather.weather[0].description,"********************************"};
             }
             else
             {
@@ -91,33 +94,75 @@ namespace WeatherApp
 
             return data;
         }
-        public static string PrintFourDaysForecast(WeatherData weather)
+        public static List<string> PrintFourDaysForecast(WeatherData weather)
         {
-            string data = string.Empty;
-            data = $"4 days weather forecast {weather.city.name}, Coords: {weather.city.coord.lon},{weather.city.coord.lat}" + "\n";
+            int count = 0;
+            List<string> data = new List<string>();
+            data.Add("********************************");
+            data.Add("* "+weather.city.name+" fourdays forecast");
+            data.Add("* Lon: " + weather.city.coord.lon.ToString() + " Lat: " + weather.city.coord.lat.ToString());
+
+
             foreach (var s in weather.list)
             {
-                data += $"\n------\nDate: {s.dt_txt}\nTemperatur: {s.main.temp}\nHighest temperature: {s.main.temp_max}\nLowest temperatur: {s.main.temp_min}\nFeels like: {s.main.feels_like}\nHumidity: {s.main.humidity}\nPressure: {s.main.pressure}" +
-                    $"\nWindspeed: {s.wind.speed}\nDeg: {s.wind.deg}\nCondition: {s.weather[0].main}\nDescription: {s.weather[0].description}";
+                count++;
+                data.Add("********************************");
+                data.Add("* Date: " + s.dt_txt);
+                data.Add("* Temperatur: " + s.main.temp);
+                data.Add("* Highest temperature: " + s.main.temp_max);
+                data.Add("* Lowest temperature: " + s.main.temp_min);
+                data.Add("* Feels like: " + s.main.feels_like);
+                data.Add("* Humidity: " + s.main.humidity);
+                data.Add("* Pressure: " + s.main.pressure);
+                data.Add("* Windspeed: " + s.wind.speed);
+                data.Add("* Condition: " + s.weather[0].main);
+                data.Add("* Description: " + s.weather[0].description);
             }
+            if (count.Equals(0))
+            {
+                data.Add("********************************");
+                data.Add("* No data found!");
+                data.Add("* Try Later or another city! ");
+            }
+            data.Add("********************************");
             return data;
         }
 
-        public static string PrintDailyForecast(WeatherData weather)
+        public static List<string> PrintDailyForecast(WeatherData weather)
         {
-            string data = string.Empty;
+            int count = 0;
             string dateNow = DateTime.Now.ToString("yyyy/MM/dd").Replace("/", "-");
-            data = $"Daily weather forecast {weather.city.name}, Coords: {weather.city.coord.lon},{weather.city.coord.lat}";
+            List<string> data = new List<string>();
+            data.Add("********************************");
+            data.Add("* City: "+weather.city.name);
+            data.Add("* Lon: " + weather.city.coord.lon.ToString() + " Lat: " + weather.city.coord.lat.ToString());
             foreach (var s in weather.list)
             {
                 string Apidate = s.dt_txt.Remove(10).ToString();//removes time from the string
 
                 if (Apidate.Equals(dateNow))
                 {
-                    data += $"\n------\nDate: {s.dt_txt}\nTemperatur: {s.main.temp}\nHighest temperature: {s.main.temp_max}\nLowest temperatur: {s.main.temp_min}\nFeels like: {s.main.feels_like}\nHumidity: {s.main.humidity}\nPressure: {s.main.pressure}" +
-                      $"\nWindspeed: {s.wind.speed}\nDeg: {s.wind.deg}\nCondition: {s.weather[0].main}\nDescription: {s.weather[0].description}";
+                    count++;
+                    data.Add("********************************");
+                    data.Add("* Date: " + s.dt_txt);
+                    data.Add("* Temperatur: " + s.main.temp);
+                    data.Add("* Highest temperature: " + s.main.temp_max);
+                    data.Add("* Lowest temperature: " + s.main.temp_min);
+                    data.Add("* Feels like: " + s.main.feels_like);
+                    data.Add("* Humidity: " + s.main.humidity);
+                    data.Add("* Pressure: " + s.main.pressure);
+                    data.Add("* Windspeed: " + s.wind.speed);
+                    data.Add("* Condition: " + s.weather[0].main);
+                    data.Add("* Descripton: " + s.weather[0].description);             
                 }
             }
+            if (count.Equals(0))
+            {
+                data.Add("********************************");
+                data.Add("* No data found!");
+                data.Add("* Try Later or another city! ");
+            }
+            data.Add("********************************");
             return data;
         }
     }
