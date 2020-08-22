@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebWeatherApp.Models;
+using WeatherApp.Data;
 
 namespace WebWeatherApp.Controllers
 {
@@ -18,12 +19,12 @@ namespace WebWeatherApp.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> ShowWeather()
         {
-            return View();
+            return View(await Seed.PopulateWeatherModel());
         }
 
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
             return View();
         }
