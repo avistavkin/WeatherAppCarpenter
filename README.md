@@ -20,7 +20,7 @@ Will collect most of the data which is free to collect from there api.
 - Daily weather forecast 
 
 ## MVC Version Supports
-- Nan
+- Show weather condition in a city
 
 ## Support that might be added
 - Weather Trigger Support
