@@ -12,11 +12,7 @@ namespace WebWeatherApp
         public static async Task<WeatherData> PopulateWeatherModel()
         {
             FetchData fetch = new FetchData();
-            //weatherModel weatherModel = new weatherModel();
             WeatherData weatherData = await fetch.GetAPIResponse("Gothenburg",1);
-            //weatherModel.name = weatherData.name;
-            
-
             return weatherData;
         }
     }

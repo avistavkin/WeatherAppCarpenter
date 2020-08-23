@@ -1,42 +1,44 @@
 ﻿@model WeatherApp.Data.WeatherData
 
 @{
-    ViewData["Title"] = "ShowWeather";
+    string iconLink = "http://openweathermap.org/img/wn/" + Model.weather[0].icon + "@2x.png";
 }
 
-<h1>ShowWeather</h1>
+    <h1>
+        @Html.DisplayFor(model => model.name)
+        <img src=@iconLink>
+    </h1>
 
 <div>
-    <h4>WeatherData</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cod)
+        <dt class="col-sm-10">
+
+            Description: @Html.DisplayFor(model => model.weather[0].description)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cod)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.message)
+        <dt class="col-sm-10">
+            Condition: @Html.DisplayFor(model => model.weather[0].main)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.message)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cnt)
+        <dt class="col-sm-10">
+            Temperature: @Html.DisplayFor(model => model.main.temp) C°
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cnt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
+        <dt class="col-sm-10">
+            Feels Like: @Html.DisplayFor(model => model.main.feels_like) C°
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.name)
-        </dd>
+        <dt class="col-sm-10">
+            Pressure: @Html.DisplayFor(model => model.main.pressure) Bar
+        </dt>
+        <dt class="col-sm-10">
+            Humidity: @Html.DisplayFor(model => model.main.humidity) %
+        </dt>
+        <dt class="col-sm-10">
+            WindSpeed: @Html.DisplayFor(model => model.Wind.speed)
+        </dt>
+        <dt class="col-sm-10">
+            Wind degrees: @Html.DisplayFor(model => model.Wind.deg) °
+        </dt>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>
