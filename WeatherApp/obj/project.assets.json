@@ -76,9 +76,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp\\WeatherApp.csproj",
-      "projectName": "WeatherApp",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp\\WeatherApp.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp\\ConsoleWeatherApp.csproj",
+      "projectName": "ConsoleWeatherApp",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp\\ConsoleWeatherApp.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp\\obj\\",
       "projectStyle": "PackageReference",

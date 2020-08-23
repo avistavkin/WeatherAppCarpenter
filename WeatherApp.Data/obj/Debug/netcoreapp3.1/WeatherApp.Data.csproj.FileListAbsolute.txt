@@ -54,3 +54,16 @@ C:\Users\Admin\source\repos\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\W
 C:\Users\Admin\source\repos\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.csproj.CopyComplete
 C:\Users\Admin\source\repos\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.dll
 C:\Users\Admin\source\repos\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.pdb
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\bin\Debug\netcoreapp3.1\WeatherApp.Data.exe
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\bin\Debug\netcoreapp3.1\WeatherApp.Data.deps.json
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\bin\Debug\netcoreapp3.1\WeatherApp.Data.runtimeconfig.json
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\bin\Debug\netcoreapp3.1\WeatherApp.Data.runtimeconfig.dev.json
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\bin\Debug\netcoreapp3.1\WeatherApp.Data.dll
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\bin\Debug\netcoreapp3.1\WeatherApp.Data.pdb
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.AssemblyInfo.cs
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.csproj.CopyComplete
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.dll
+C:\Users\Admin\source\repos\C# Core Development\WeatherApp\WeatherApp.Data\obj\Debug\netcoreapp3.1\WeatherApp.Data.pdb
