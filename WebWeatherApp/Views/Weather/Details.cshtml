@@ -1,0 +1,42 @@
+﻿@model WeatherApp.Data.WeatherData
+
+@{
+    string url ="http://openweathermap.org/img/wn/" + Model.weather[0].icon + "@2x.png";
+}
+
+<h1>On Weather Details Page</h1>
+
+<div>
+    <h4>Weatherdata for @Html.DisplayFor(model => model.name)</h4>
+    <hr />
+    <img src=@url />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Temperature:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.main.temp)
+        </dd>
+        <dt class="col-sm-2">
+            Feels like:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.main.feels_like)
+        </dd>
+        <dt class="col-sm-2">
+            Highest temperatur:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.main.temp_max)
+        </dd>
+        <dt class="col-sm-2">
+            Lowest temperature:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.main.temp_min)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

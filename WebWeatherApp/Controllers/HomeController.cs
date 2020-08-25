@@ -19,13 +19,9 @@ namespace WebWeatherApp.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> ShowWeather()
-        {
-            return View(await Seed.PopulateWeatherModel());
-        }
-
         public IActionResult Index()
         {
+
             return View();
         }
 
