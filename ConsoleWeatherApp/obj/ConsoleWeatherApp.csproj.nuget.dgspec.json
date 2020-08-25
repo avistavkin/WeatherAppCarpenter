@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
         "projectName": "ConsoleWeatherApp",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\ConsoleWeatherApp\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\ConsoleWeatherApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj"
+              "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj"
               }
             }
           }
@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
         "projectName": "WeatherApp.Data",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\WeatherApp\\WeatherApp.Data\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

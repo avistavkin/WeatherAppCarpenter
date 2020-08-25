@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -17,6 +18,7 @@ namespace WeatherApp.Data
         public Wind Wind { get; set; }
         public Main main { get; set; }
         public Coords coords { get; set; }
+        [Required]
         public string name { get; set; }
 
     }
