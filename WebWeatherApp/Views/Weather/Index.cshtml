@@ -9,7 +9,6 @@
 @model WeatherApp.Data.WeatherData;
 @using (Html.BeginForm())
 {
-
     @Html.TextBoxFor(s => s.name);
 <input type="submit" value="Apply" asp-action="Details" class="btn btn-dark" />
 }
