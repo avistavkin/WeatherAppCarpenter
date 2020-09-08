@@ -25,7 +25,6 @@ Will collect most of the data which is free to collect from there api.
 ## Support that might be added
 - Weather Trigger Support
 - Database Support
-- Blazor Web Assembly version
 
 # Extra
 
