@@ -1,4 +1,4 @@
-# General
+# General - (On hold do to school)
 ### About
 Collects weather data using openweather api https://openweathermap.org/. 
 Will collect most of the data which is free to collect from there api. 
