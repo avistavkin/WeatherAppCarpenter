@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        @model WeatherApp.Data.WeatherData;
+            @using (Html.BeginForm())
+            {
+            <p>@Html.TextBoxFor(s => s.name) <input type="submit" value="Search" asp-action="Details" class="btn btn-dark" /></p>
+            
+            }
+    </div>
+
+</div>

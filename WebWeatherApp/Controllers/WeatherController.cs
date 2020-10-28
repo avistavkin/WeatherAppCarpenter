@@ -12,7 +12,7 @@ namespace WebWeatherApp.Controllers
     {
 
         // GET: Weather
-        public ActionResult Index()
+        public ActionResult Search()
         {
             return View(new WeatherData());
         }

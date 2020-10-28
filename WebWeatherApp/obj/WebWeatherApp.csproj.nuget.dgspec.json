@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WebWeatherApp\\WebWeatherApp.csproj": {}
+    "C:\\Users\\nicla\\Documents\\WeatherApp\\WebWeatherApp\\WebWeatherApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
+    "C:\\Users\\nicla\\Documents\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
+        "projectUniqueName": "C:\\Users\\nicla\\Documents\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
         "projectName": "WeatherApp.Data",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\obj\\",
+        "projectPath": "C:\\Users\\nicla\\Documents\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj",
+        "packagesPath": "C:\\Users\\nicla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nicla\\Documents\\WeatherApp\\WeatherApp.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nicla\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,24 +58,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WebWeatherApp\\WebWeatherApp.csproj": {
+    "C:\\Users\\nicla\\Documents\\WeatherApp\\WebWeatherApp\\WebWeatherApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WebWeatherApp\\WebWeatherApp.csproj",
+        "projectUniqueName": "C:\\Users\\nicla\\Documents\\WeatherApp\\WebWeatherApp\\WebWeatherApp.csproj",
         "projectName": "WebWeatherApp",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WebWeatherApp\\WebWeatherApp.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WebWeatherApp\\obj\\",
+        "projectPath": "C:\\Users\\nicla\\Documents\\WeatherApp\\WebWeatherApp\\WebWeatherApp.csproj",
+        "packagesPath": "C:\\Users\\nicla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nicla\\Documents\\WeatherApp\\WebWeatherApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nicla\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,8 +85,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\C# Core Development\\MVC\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj"
+              "C:\\Users\\nicla\\Documents\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
+                "projectPath": "C:\\Users\\nicla\\Documents\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj"
               }
             }
           }
@@ -149,7 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
