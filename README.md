@@ -1,4 +1,4 @@
-# Project on hold
+# Project on a short hold
 
 # General
 ### About
