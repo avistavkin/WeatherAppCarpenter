@@ -1,3 +1,5 @@
+# Project on hold
+
 # General
 ### About
 Collects weather data using openweather api https://openweathermap.org/. 
