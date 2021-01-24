@@ -1,27 +1,94 @@
-﻿@model string
-
-<div class="container-fluid jumbotron  mw-100 img-fluid">
+﻿@model List<WeatherApp.Data.WeatherData>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div class="container-fluid jumbotron mw-100 img-fluid">
+    <div class="row center mw-100 w-100">
+        <div class="col-5"></div>
+        <div class="col-2">
+            <h1 style="font-family:'Times New Roman'">Hello world</h1>
+        </div>
+        <div class="col-5"></div>
+    </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6">
-            <div style="height:2.5vw;"></div>
-            <div class="card shadow text-white" style="background-color:#292a2c;font-family:'Times New Roman';align-content:center;">
-                <div class="card-body p-2 center">
-                    <div style="height:2vw;"></div>
-                    @using (Html.BeginForm("Search", "Weather"))
-                    {
+<div class="shadow text-left text-white" style="background-color:#3f3f3e;">
+    <div class="row mw-100 center w-100">
+        <div class="col-5"></div>
+        <div class="col-2">
+            <div style="height:0.5vw;"></div>
+            @using (Html.BeginForm("Search", "Weather"))
+            {
 
-                        <label class="d-block">Search By City Name</label>
-                        @Html.TextBox("CityName")
-                        <button class="d-inline-block btn btn-primary text-white p-2" type="submit" value="Search" style="margin-left:0.2vw;font-family:'Times New Roman'">Search</button>
-                    }
-                    <div style="height:2.5vw;"></div>
+                <label class="d-block">Search By City Name</label>
+                @Html.TextBox("CityName")
+                <button class="d-inline-block btn btn-primary text-white p-2" type="submit" value="Search" style="margin-left:0.2vw;font-family:'Times New Roman'">Search</button>
+            }
+            <div style="height:0.5vw;"></div>
+        </div>
+        <div class="col-5"></div>
+    </div>
+</div>
+<div style="height:16vw;"></div>
+<div class="shadow text-white" style="background-color:#3f3f3e;">
+    <div class="row mw-100 center w-100">
+        <div class="col-3"></div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+
+                    </div>
                 </div>
             </div>
-            <div style="height:2.5vw;"></div>
+        </div>
+        <div class="col-3 text-dark">
+            <div id="piechart">
+                @if (Model == null ||
+                  Model.Count <= 0)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4 style="color:red;text-align:center;">Error! Could not read data</h4>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">Population data</div>
+                            <div class="card-text">
+                                <script type="text/javascript">
+                    // Load google charts
+                    google.charts.load('current', { 'packages': ['corechart'] });
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    // Draw the chart and set the chart values. TODO needs to grab value from Model[e].city.population
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                            ['Task', 'Population'],
+                            ['@Model[0].name', 1000],
+                            ['@Model[1].name', 2060],
+                            ['@Model[2].name', 4004],
+                            ['@Model[3].name', 3060],
+                            ['@Model[4].name', 2000]
+                        ]);
+
+                        // Optional; add a title and set the width and height of the chart
+                        var options = {'width': 800, 'height': 400 };
+
+                        // Display the chart inside the <div> element with id="piechart"
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(data, options);
+                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
         <div class="col-3"></div>
     </div>
 </div>
+<div style="height:16vw;"></div>

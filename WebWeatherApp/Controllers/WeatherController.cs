@@ -11,13 +11,14 @@ namespace WebWeatherApp.Controllers
     public class WeatherController : Controller
     {
         [HttpGet]
-        public ActionResult Search()
+        public async Task<ActionResult> Search()
         {
-            return View();
+            var WeatherDataList = await Seed.PopulateByRandValues();
+            return View(WeatherDataList);
         }
 
         [HttpPost]
-        public ActionResult Search(string CityName)
+        public async Task<ActionResult> Search(string CityName)
         {
             if (CityName != null)  
             {
@@ -26,7 +27,7 @@ namespace WebWeatherApp.Controllers
             }
             else
             {
-                return Search();
+                return await Search();
             }
        
         }

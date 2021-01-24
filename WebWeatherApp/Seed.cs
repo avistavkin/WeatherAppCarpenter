@@ -19,5 +19,16 @@ namespace WebWeatherApp
             WeatherData weatherData = await fetch.GetAPIResponse(city,GrabWeatherData);
             return weatherData;
         }
+
+        public static async Task<List<WeatherData>> PopulateByRandValues()
+        {
+            FetchData fetch = new FetchData();
+            List<WeatherData> listWithWeather = new List<WeatherData>();
+            for(int i = 0;i < 5; i++)
+            {
+                listWithWeather.Add(await fetch.GetRandomCity());
+            }
+            return listWithWeather;
+        }
     }
 }

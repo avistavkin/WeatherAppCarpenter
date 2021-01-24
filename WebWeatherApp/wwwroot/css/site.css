@@ -1,6 +1,10 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+
+
+/*Custom end*/
 a.navbar-brand {
     white-space: normal;
     text-align: center;
@@ -15,11 +19,8 @@ a.navbar-brand {
     padding: 10px;
 }
 
-.jumbo-test {
-    display: flex;
+.span-div {
     background-size: cover;
-    background-image: url("../Content/Images/9775816379_n.jpg");
-    height: 26vw;
     color: #fffeff !important;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,15 +28,13 @@ a.navbar-brand {
 }
 
 .jumbotron {
-    /*display: flex;*/
+    display: flex;
     background-image: url("../Content/Images/72126.jpg");
-    /*background-size: cover;*/
+    background-size: cover;
     color: #fffeff !important;
     text-align: left;
     height: 28vw;
-    margin-bottom: -4.5vw;
-    object-fit: cover;
-    object-position: 200px 100px; /* try 20px 10px */
+    margin-bottom: -3.5vw;
 }
 
 .navbar-inverse {
@@ -101,7 +100,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background-color: #f4f4f4;
+    background-color: #fafaf9;
 }
 .footer {
     position: absolute;

@@ -34,7 +34,8 @@ namespace WeatherApp.Data
                     Console.WriteLine(e.Message);
                 }
             }
-            else if (value.Equals(GrabDailyForeCastData) || value.Equals(GrabWeeklyForeCastData))
+            else if (value.Equals(GrabDailyForeCastData) || 
+                value.Equals(GrabWeeklyForeCastData))
             {
                 string weatherForCity = $"forecast?q={userInput}";
                 string path = URL + weatherForCity + MetricUnits + APIKEY;
@@ -52,7 +53,6 @@ namespace WeatherApp.Data
             return weatherData;
         }
 
-
         public async Task<WeatherData> GetAPIResponse(int lat, int lon)//grab data by coords
         {
             string weatherForCoord = $"weather?lat={lat}&lon={lon}";
@@ -60,8 +60,44 @@ namespace WeatherApp.Data
             weatherData = await ConnectToClient(path);
             return weatherData;
         }
-
         #endregion
+
+        public async Task<WeatherData> GetRandomCity()
+        {
+            WeatherData weatherData = new WeatherData();
+            Random rnd = new Random();
+            int num = rnd.Next(1, 13);  // creates a number between 1 and 12
+            string city = string.Empty;
+            switch (num)
+            {
+                case 1:
+                    return weatherData = await GetAPIResponse("Stockholm", GrabWeatherData);
+                case 2:
+                    return weatherData = await GetAPIResponse("New York", GrabWeatherData);
+                case 3:
+                    return weatherData = await GetAPIResponse("France",GrabWeatherData);
+                case 4:
+                    return weatherData = await GetAPIResponse("Mexico City", GrabWeatherData);
+                case 5:
+                    return weatherData = await GetAPIResponse("Havana", GrabWeatherData);
+                case 6:
+                    return weatherData = await GetAPIResponse("Abidjan", GrabWeatherData);
+                case 7:
+                    return weatherData = await GetAPIResponse("Madrid", GrabWeatherData);
+                case 8:
+                    return weatherData = await GetAPIResponse("China", GrabWeatherData);
+                case 9:
+                    return weatherData = await GetAPIResponse("Moscow", GrabWeatherData);
+                case 10:
+                    return weatherData = await GetAPIResponse("Oslo", GrabWeatherData);
+                case 11:
+                    return weatherData = await GetAPIResponse("Sydney", GrabWeatherData);
+                case 12:
+                    return weatherData = await GetAPIResponse("Baghdad", GrabWeatherData);
+            }
+
+            return null;
+        }
 
         #region connecting to api and grabbing a response string
         private async Task<WeatherData> ConnectToClient(string path)
@@ -94,7 +130,8 @@ namespace WeatherApp.Data
             return weatherData;
         }
         #endregion
-    }
+        
 
+    }
 
 }
