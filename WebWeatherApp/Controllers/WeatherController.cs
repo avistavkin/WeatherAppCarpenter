@@ -10,88 +10,53 @@ namespace WebWeatherApp.Controllers
 {
     public class WeatherController : Controller
     {
-
-        // GET: Weather
+        [HttpGet]
         public ActionResult Search()
         {
-            return View(new WeatherData());
-        }
-
-
-        // GET: Weather/Details/5
-        public async Task<ActionResult> Details(WeatherData weather)
-        {
-            WeatherData newWeather = new WeatherData();
-            newWeather = await Seed.PopulateWeatherModel(weather.name);
-            return View(newWeather);
-        }
-
-        // GET: Weather/Create
-        public ActionResult Create()
-        {
-            
             return View();
         }
 
-        // POST: Weather/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Search(string CityName)
+        {
+            if (CityName != null)  
+            {
+                TempData["CityName"] = CityName;
+                return Redirect("/Weather/Details");
+            }
+            else
+            {
+                return Search();
+            }
+       
+        }
+
+       [HttpGet]
+        public async Task<ActionResult> Details()
         {
             try
             {
-         
-                return RedirectToAction(nameof(Index));
+                var showWeather = new WeatherData();
+                showWeather.name = TempData["CityName"].ToString();
+                TempData.Remove("CityName");
+                showWeather = await Seed.PopulateWeatherModel(showWeather.name);
+
+                if (!showWeather.Equals(null))
+                {
+                    return View(showWeather);
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-            catch
+            catch(NullReferenceException)
             {
-                return View();
+                return NotFound();
             }
-        }
-
-        // GET: Weather/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Weather/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
+            catch(Exception)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Weather/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Weather/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
+                return NotFound();
             }
         }
     }

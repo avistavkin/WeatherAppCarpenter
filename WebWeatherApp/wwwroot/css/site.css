@@ -2,9 +2,45 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+ 
+}
+
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.jumbo-test {
+    display: flex;
+    background-size: cover;
+    background-image: url("../Content/Images/9775816379_n.jpg");
+    height: 26vw;
+    color: #fffeff !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: -4.5vw;
+}
+
+.jumbotron {
+    /*display: flex;*/
+    background-image: url("../Content/Images/72126.jpg");
+    /*background-size: cover;*/
+    color: #fffeff !important;
+    text-align: left;
+    height: 28vw;
+    margin-bottom: -4.5vw;
+    object-fit: cover;
+    object-position: 200px 100px; /* try 20px 10px */
+}
+
+.navbar-inverse {
+    background-color: #292a2c !important;
+    height:2.5vw !important;
 }
 
 /* Provide sufficient contrast against white background */
@@ -16,6 +52,10 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -59,13 +99,15 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #f4f4f4;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    background-color: #292a2c;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }

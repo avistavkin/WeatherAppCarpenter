@@ -1,16 +1,27 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model string
 
-<div class="card">
-    <div class="card-body">
-        @model WeatherApp.Data.WeatherData;
-            @using (Html.BeginForm())
-            {
-            <p>@Html.TextBoxFor(s => s.name) <input type="submit" value="Search" asp-action="Details" class="btn btn-dark" /></p>
-            
-            }
+<div class="container-fluid jumbotron  mw-100 img-fluid">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div style="height:2.5vw;"></div>
+            <div class="card shadow text-white" style="background-color:#292a2c;font-family:'Times New Roman';align-content:center;">
+                <div class="card-body p-2 center">
+                    <div style="height:2vw;"></div>
+                    @using (Html.BeginForm("Search", "Weather"))
+                    {
+
+                        <label class="d-block">Search By City Name</label>
+                        @Html.TextBox("CityName")
+                        <button class="d-inline-block btn btn-primary text-white p-2" type="submit" value="Search" style="margin-left:0.2vw;font-family:'Times New Roman'">Search</button>
+                    }
+                    <div style="height:2.5vw;"></div>
+                </div>
+            </div>
+            <div style="height:2.5vw;"></div>
+        </div>
+        <div class="col-3"></div>
     </div>
-
 </div>

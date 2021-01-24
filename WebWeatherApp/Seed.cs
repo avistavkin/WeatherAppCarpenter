@@ -9,11 +9,14 @@ namespace WebWeatherApp
 {
     public class Seed
     {
-        private const int value = 1;
+        private const int GrabDailyForeCastData = 4;
+        private const int GrabWeeklyForeCastData = 5;
+        private const int GrabWeatherData = 1;
+
         public static async Task<WeatherData> PopulateWeatherModel(string city)
-        {
+        { 
             FetchData fetch = new FetchData();
-            WeatherData weatherData = await fetch.GetAPIResponse(city,value);
+            WeatherData weatherData = await fetch.GetAPIResponse(city,GrabWeatherData);
             return weatherData;
         }
     }

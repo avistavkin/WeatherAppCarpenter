@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Mubn1roWVaKx7akDweQBuho0YO0GaYR34HF6LGfwXvCYiLPzq+kwXAnk1YF2+sT3N5TheX91LyBLCCyLSQ+R1A==",
+  "dgSpecHash": "vDfcYvifO3wh0vx+4uKH8+lZXTPykWe2ljr4qXJvx18M0KBx1SD5DXIUt4eJtzn99iEZ9I5sm5MGxCZ9jTiVgA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nicla\\Documents\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
+  "projectFilePath": "C:\\Users\\nicla\\source\\repos\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nicla\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],

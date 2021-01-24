@@ -3,60 +3,69 @@
 @{
     string url ="http://openweathermap.org/img/wn/" + Model.weather[0].icon + "@2x.png";
 }
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Weather in @Html.DisplayFor(model => model.name)</h4>
-        <hr />
-        <div class="card-img">
-            <img src=@url />
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div style="height:2.5vw;"></div>
+            <div class="card shadow text-white" style="background-color: #292a2c !important;font-family:'Times New Roman'">
+                <div class="card-body">
+                    <h4 class="card-title">Weather in @Html.DisplayFor(model => model.name)</h4>
+                    <div style="border-bottom:2px solid #968d7b;width:100%;"></div>
+                    <div class="card-img">
+                        <img src=@url />
+                    </div>
+                    <dl class="row">
+                        <dt class="col-2">
+                            General Info:
+                        </dt>
+                        <dd class="col-10">
+                            @Html.DisplayFor(model => model.weather[0].main)
+                        </dd>
+                        <dt class="col-3" style="margin-right:-3vw;">
+                            Temperature:
+                        </dt>
+                        <dd class="col-9">
+                            @Html.DisplayFor(model => model.main.temp)°C
+                        </dd>
+                        <dt class="col-2">
+                            Highest:
+                        </dt>
+                        <dd class="col-10">
+                            @Html.DisplayFor(model => model.main.temp_max)°C
+                        </dd>
+                        <dt class="col-2">
+                            Lowest:
+                        </dt>
+                        <dd class="col-10">
+                            @Html.DisplayFor(model => model.main.temp_min)°C
+                        </dd>
+                        <dt class="col-3" style="margin-right:-3.vw;">
+                            Feels like:
+                        </dt>
+                        <dd class="col-9" >
+                            @Html.DisplayFor(model => model.main.feels_like)°C
+                        </dd>
+                        <dt class="col-2">
+                            Humidity:
+                        </dt>
+                        <dd class="col-10">
+                            @Html.DisplayFor(model => model.main.humidity)
+                        </dd>
+                        <dt class="col-2">
+                            Pressure:
+                        </dt>
+                        <dd class="col-10">
+                            @Html.DisplayFor(model => model.main.pressure) Bar
+                        </dd>
+                    </dl>
+                    <a asp-area="" asp-controller="Weather" asp-action="Search" class="btn btn-primary text-white" style="margin-left:85%;font-family:'Times New Roman'">Cancel</a>
+                </div>
+            </div>
         </div>
-        <dl class="row">
-            <dt class="col-sm-2">
-                General Info:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.weather[0].main)
-            </dd>
-            <dt class="col-sm-2">
-                Temperature:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.main.temp)°C
-            </dd>
-            <dt class="col-sm-2">
-                Highest:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.main.temp_max)°C
-            </dd>
-            <dt class="col-sm-2">
-                Lowest:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.main.temp_min)°C
-            </dd>
-            <dt class="col-sm-2">
-                Feels like:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.main.feels_like)°C
-            </dd>
-            <dt class="col-sm-2">
-                Humidity:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.main.humidity)
-            </dd>
-            <dt class="col-sm-2">
-                Pressure:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.main.pressure) Bar
-            </dd>
-        </dl>
-        <div>
-            <a asp-area="" asp-controller="Weather" asp-action="Search" class="btn btn-dark">new search</a>
-        </div>
-    </div>
+        <div class="col-2"></div>
+    </div> 
 </div>
+
+
 

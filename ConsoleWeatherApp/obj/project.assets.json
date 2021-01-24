@@ -70,20 +70,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nicla\\.nuget\\packages\\": {}
+    "C:\\Users\\nicla\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nicla\\Documents\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
+      "projectUniqueName": "C:\\Users\\nicla\\source\\repos\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
       "projectName": "ConsoleWeatherApp",
-      "projectPath": "C:\\Users\\nicla\\Documents\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
+      "projectPath": "C:\\Users\\nicla\\source\\repos\\WeatherApp\\ConsoleWeatherApp\\ConsoleWeatherApp.csproj",
       "packagesPath": "C:\\Users\\nicla\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nicla\\Documents\\WeatherApp\\ConsoleWeatherApp\\obj\\",
+      "outputPath": "C:\\Users\\nicla\\source\\repos\\WeatherApp\\ConsoleWeatherApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\nicla\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -94,9 +99,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\nicla\\Documents\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
-              "projectPath": "C:\\Users\\nicla\\Documents\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj"
+            "C:\\Users\\nicla\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj": {
+              "projectPath": "C:\\Users\\nicla\\source\\repos\\WeatherApp\\WeatherApp.Data\\WeatherApp.Data.csproj"
             }
           }
         }
@@ -109,6 +115,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -124,7 +131,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
